@@ -1,0 +1,653 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Noto Sans;
+
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #f1f1f1;
+    text-align: center;
+    vertical-align: middle;
+}
+
+main {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.col {
+    padding-top: 15px;
+}
+
+/* start css accout */
+.account {
+    margin-top: 5px;
+    display: block;
+}
+
+/* end css account */
+
+/* start css index */
+.icon-add-new-user {
+    float: right;
+}
+
+.float-right {
+    float: right;
+    padding-right: 10px;
+}
+
+.btn-savenew {
+    padding-top: 20px;
+}
+
+.row .col-8 {
+    width: 835px;
+}
+
+.table {
+    vertical-align: middle;
+    border-style: groove;
+    margin-top: 40px;
+}
+
+.table thead {
+    vertical-align: bottom;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.item-search hr {
+    border: none;
+    border-top: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.required-mark-add {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-left: 1px;
+    vertical-align: top;
+    width: 5px;
+}
+
+.search {
+    margin-top: 20px;
+}
+
+.form-search {
+    padding-top: 110px;
+}
+
+.search-by-name .title-search-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.search-by-name {
+    width: 95%;
+    margin-left: 15px;
+}
+
+.search-bar {
+    margin-left: 25px;
+}
+
+.search-radio {
+    margin-left: 25px;
+}
+
+.button-search {
+    margin-left: 25px;
+}
+
+
+/* end css index */
+
+/* start css show */
+.img-show {
+    margin-top: 20px;
+}
+
+/* end css show */
+
+/* start css add new */
+.required-mark-add {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-left: none;
+    vertical-align: text-top;
+    width: 5px;
+}
+
+/* end css add new */
+
+/* start css edit */
+.img-edit {
+    margin-left: 80px;
+}
+
+.item-img-edit {
+    width: 300px;
+}
+
+
+.img-fluid {
+    max-width: 300px;
+    height: 300px;
+}
+
+/* end css edit */
+
+/* start css header */
+header .navbar {
+    padding: 0;
+    height: 85px;
+
+}
+
+.navbar .row {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.navbar-brand.size img {
+    height: 60px;
+    width: 80px;
+    margin-top: 12px;
+}
+
+.navbar .row .col-3 .col-5 {
+    padding: 0;
+}
+
+.navbar .navbar-brand {
+    color: white;
+    text-decoration: none;
+}
+
+.text-home {
+    font-size: 30px;
+    padding-right: 30px;
+}
+
+.navbar .navbar-brand:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.navbar .nav-link {
+    color: #1eaa39;
+    text-decoration: none;
+}
+
+.nav-item {
+    padding-right: 30px;
+}
+
+.text-nav-item {
+    font-size: 20px;
+}
+
+.navbar .nav-link:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.navbar .row .col-3 .row .col-7 {
+    padding: 0;
+}
+
+.header-right .col-7 {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.dropdown .dropdown-toggle {
+    border: none;
+    height: auto;
+}
+
+.no-arrow::after {
+    display: none !important;
+}
+
+.icon2 {
+    margin-right: 12px;
+}
+
+.icon-size {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.icon-size-signup {
+    width: 50%;
+    background-color: #1eaa39;
+    margin: 0;
+    height: 100%;
+    font-weight: 500;
+}
+
+.icon-size-login {
+    width: 50%;
+    margin: 0;
+    height: 100%;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+.icon-size-signup:hover {
+    color: white;
+}
+
+.icon-size-login:hover {
+    color: green;
+    background-color: #1eaa39;
+}
+
+/* end css header */
+
+/* start css footer */
+footer .navbar {
+    height: 200px;
+}
+
+footer .navbar .row .col-4 {
+    padding: 0;
+}
+
+footer .navbar .row .col-8 {
+    color: aliceblue;
+}
+
+footer .navbar .row .col-4 .size-footer {
+    display: flex;
+    align-items: center;
+    height: 160px;
+    margin-left: 50px;
+}
+
+.text-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    text-align: right;
+    color: white;
+}
+
+/* end css footer */
+
+/* start css form signup */
+.container-signup {
+    padding-top: 100px;
+}
+
+.title-signup {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    height: 100%;
+}
+
+.title-signup .text-email {
+    margin: 0;
+    font-size: larger;
+    padding-right: 30px;
+}
+
+.form-sigup-email {
+    display: inline-flex;
+}
+
+.form-sigup-email .text-email {
+    padding-top: 10px;
+}
+
+.form-sigup-email .error-require {
+    display: block;
+}
+
+.email {
+    width: 528px;
+    height: 48px;
+    background: #f2f2f2;
+    outline: none;
+    padding-left: 20px;
+    /* Add padding to the left */
+    border: none;
+}
+
+.required-mark-signup {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-left: 10px;
+    vertical-align: text-top;
+    width: 5px;
+}
+
+.button-signup {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.button-back1 {
+    width: 180px;
+    height: 40px;
+    float: right;
+}
+
+.custom-button1 {
+    width: 100%;
+    height: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: #9d9d9d;
+    color: white;
+    border-radius: 30px;
+    float: right;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button1:hover {
+    margin-top: -5px;
+    background-color: white;
+    color: #222;
+    box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.25);
+}
+
+.button-back2 {
+    width: 180px;
+    height: 40px;
+}
+
+.custom-button2 {
+    width: 100%;
+    height: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: #222;
+    color: white;
+    border-radius: 30px;
+    float: right;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button2:hover {
+    margin-top: -5px;
+    color: #1eaa39;
+    box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+/* end css form sigup */
+
+/* start css form waitting */
+.container-waiting {
+    padding-top: 100px;
+}
+
+.title-page-signup {
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.icon-send1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 50%;
+    margin: 60px auto 20px;
+}
+
+.icon-send1 i {
+    font-size: 50px;
+    color: white;
+}
+
+.text-icon-send {
+    font-size: 25px;
+    text-align: center;
+}
+
+.custom-witting {
+    width: 180px;
+    height: 40px;
+}
+
+.custom-button-witting {
+    width: 100%;
+    height: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 30px;
+    background-color: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button-witting:hover {
+    margin-top: -5px;
+    color: #1eaa39;
+    box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* end css form witting */
+
+/* start css form login */
+
+.container-login .mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.title-text-login {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    font-size: 28px;
+    text-align: left;
+    font-weight: 700;
+    max-width: 100%;
+    margin: 0;
+}
+
+.row .login-form-import {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.form-login-text {
+    display: flex;
+    width: 100%;
+}
+
+.title-form-login {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.col-md-7 {
+    width: 70%;
+}
+
+.required-mark {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 5px;
+}
+
+.title-form-login-input {
+    background-color: #f2f2f2;
+    border: none;
+    color: #212529;
+    display: block;
+    font-size: .9rem;
+    font-weight: 400;
+    padding: .375rem .75rem;
+    width: 100%;
+    outline: none;
+}
+
+.checkbox-member-login {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.checkbox-tich {
+    text-align: center;
+}
+
+.tick-remember {
+    box-shadow: 3px 3px 6px #0000002b;
+}
+
+.title-chick-remember {
+    font-size: 15px;
+    display: inline-block;
+    padding-inline: inherit;
+}
+
+.button-form-login {
+    padding-top: 32px;
+}
+
+.button-password-login {
+    text-align: center;
+}
+
+.custom-button-password-login {
+    height: 56px;
+    width: 100%;
+}
+
+.button-login-custom {
+    border: transparent;
+    border-radius: 30px;
+    height: 56px;
+    width: 100%;
+    background: linear-gradient(90deg, #bccb05, #1eaa39, #0d6bc9);
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 20px 20px 25px rgba(0, 0, 0, .17);
+    transition: background-color 0.9s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+    cursor: pointer;
+}
+
+.button-login-custom:hover {
+    background: linear-gradient(90deg, #0d6bc9, #1eaa39, #bccb05);
+    margin-top: -10px;
+}
+
+.title-forgot-password {
+    padding-top: 10px;
+    margin: 0;
+    text-align: center;
+    height: 36px;
+    font-size: 15px;
+}
+
+.text-forgot-password {
+    margin: 0;
+}
+
+.button-form-register {
+    padding-top: 30px;
+}
+
+.button-register-custom {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    height: 56px;
+    background-color: #222;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 14px 20px;
+    color: white;
+    box-shadow: 20px 20px 25px rgba(0, 0, 0, .17);
+    transition: transform 0.3s ease;
+
+}
+
+.button-register-custom:hover {
+    transform: translateY(-10px);
+    color: #1eaa39;
+}
+
+.text-no-account {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* end css forn login */
+
+
+/* */
+.bg-image-toppage {
+    height: 80vh;
+    width: 100%;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.custom-backgroupimage {
+    margin: -20px;
+}
+
+/*  */
