@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\SendMailRegisterRequest;
 use App\Services\RegisterService;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Http\Requests\SendMailRegisterRequest;
 use App\Http\Requests\StoreUserRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Password;
+use App\Http\Requests\ForgotPasswordRequest;
+
 
 class RegisterController extends Controller
 {
@@ -57,9 +60,11 @@ class RegisterController extends Controller
         if ($request->hasFile('profile_image') && $request->file('profile_image')->isValid()) {
             $requestData['profile_image'] = $this->getImage($request->file('profile_image'));
         }
-        $this->registerService->register($requestData);
+        $user = $this->registerService->register($requestData);
+        Auth::login($user);
         return redirect()->route('index')->with('success', __('User sign up successfully.'));
     }
+
 
     public function login()
     {
@@ -98,18 +103,74 @@ class RegisterController extends Controller
         return '/storage/' . $filePath;
     }
 
+    public function forgotPasswordForm()
+    {
+        return view('auth.forgotPassword');
+    }
+
+    public function forgotPassword(ForgotPasswordRequest $request)
+    {
+        $email = $request->input('email');
+
+        if ($this->registerService->forgotPassword($email)) {
+            session(['email' => $email]);
+            return redirect()->route('verifyOTPForm');
+        } else {
+            return back()->withErrors(['email' => 'Email does not exist'])->withInput();
+        }
+    }
+
+    public function verifyOTPForm()
+    {
+        return view('auth.verifyOTP');
+    }
+
+    public function verifyOTP(Request $request)
+    {
+        $request->validate(['otp' => 'required|string']);
+        $email = session('email');
+        $otp = $request->input('otp');
+        $storedOtp = Cache::get('otp_' . $email);
+
+        if (is_null($email)) {
+            return back()->withErrors(['email' => 'Session email is missing.'])->withInput();
+        }
+        if (is_null($storedOtp)) {
+            return back()->withErrors(['otp' => 'Stored OTP is missing or expired.'])->withInput();
+        }
+
+        if ($storedOtp === $otp) {
+            Cache::forget('otp_' . $email);
+            return redirect()->route('resetPasswordForm')->with('email', $email);
+        } else {
+            return back()->withErrors(['otp' => 'Invalid OTP'])->withInput();
+        }
+    }
+
     public function resetPasswordForm()
     {
-        return view('auth.reset-password');
+        return view('auth.resetPassword');
     }
 
     public function resetPassword(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
-        $status = Password::sendResetLink($request->only('email'));
-        return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
-    }
+        $request->validate([
+            'email' => 'required|email',
+            'new-password' => 'required|string|min:8|confirmed',
+        ]);
 
+        $email = $request->input('email');
+        $newPassword = $request->input('new-password');
+
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+            $user->password = Hash::make($newPassword);
+            $user->save();
+
+            return redirect()->route('login')->with('success', 'Password reset successfully');
+        } else {
+            return back()->withErrors(['email' => 'User not found.']);
+        }
+    }
 }

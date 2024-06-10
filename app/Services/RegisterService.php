@@ -6,6 +6,8 @@ use App\Jobs\SendEmailJob;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
+use App\Events\SendEmailEvent;
+use App\Events\ForgotPasswordRequested;
 
 class RegisterService
 {
@@ -19,12 +21,12 @@ class RegisterService
 
         $emailDetails = [
             'to' => $email,
-            'test' => 'hello',
+            'test' => '*This email is for sending only.*',
             'url' => $url,
         ];
+        // SendEmailJob::dispatch($emailDetails);
+        event(new SendEmailEvent($emailDetails));
 
-        // Dispatch the email job to the queue
-        SendEmailJob::dispatch($emailDetails);
     }
 
     public function register(array $data)
@@ -41,5 +43,15 @@ class RegisterService
     public function isEmailUnique(string $email): bool
     {
         return !User::where('email', $email)->exists();
+    }
+
+    public function forgotPassword($email)
+    {
+        if (User::where('email', $email)->exists()) {
+            event(new ForgotPasswordRequested($email));
+            return true;
+        } else {
+            return false;
+        }
     }
 }

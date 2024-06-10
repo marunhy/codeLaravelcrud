@@ -13,17 +13,11 @@ class SendMail extends Mailable
 
     public $details;
 
-    /**
-     * Create a new message instance.
-     */
     public function __construct($details)
     {
         $this->details = $details;
     }
 
-    /**
-     * Build the message.
-     */
     public function build()
     {
         return $this->subject('Email address registration confirmation email')

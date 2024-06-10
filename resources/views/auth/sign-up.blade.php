@@ -26,10 +26,16 @@
             </div>
             <div class="col-5 custom-button">
                 <div class="button-back2">
-                    <button type="submit" class="btn btn-sm custom-button2" id="submitButton">Sign up</button>
+                    <button type="submit" class="btn btn-sm custom-button2" id="submitButton" onclick="this.disabled=true; this.form.submit();">Sign up</button>
                 </div>
             </div>
         </div>
     </form>
 </div>
 @endsection
+
+<script>
+    document.getElementById("signupForm").addEventListener("submit", function() {
+        document.getElementById("submitButton").disabled = true;
+    });
+</script>
