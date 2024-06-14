@@ -637,17 +637,72 @@ footer .navbar .row .col-4 .size-footer {
 /* end css forn login */
 
 
-/* */
+/* start css home page */
 .bg-image-toppage {
-    height: 80vh;
     width: 100%;
-    padding: 0;
-    background-size: cover;
-    background-position: center;
+    height: auto;
+    position: fixed;
+    top: 0;
+     left: 0;
+      z-index: -1;
 }
 
-.custom-backgroupimage {
-    margin: -20px;
+/* end css home page */
+
+/* start css page verifyOTP */
+.picture-page-bg {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+     left: 0;
+      z-index: -1;
 }
 
-/*  */
+.codeOTP {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    margin-top: 130px;
+}
+
+.otp-label-and-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.otp-input {
+    display: flex;
+    gap: 10px;
+}
+
+.otp-digit {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.button-submit-otp {
+    margin-top: 20px;
+}
+/* end css page verifyOTP */
+
+/* start css page reset-password */
+.forgotPassword {
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+.button-sendotp {
+    margin-top: 20px;
+
+}
+/* end css page reset-password */
+
+.text-danger {
+    color: red;
+}

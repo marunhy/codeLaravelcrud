@@ -14,15 +14,13 @@
                         <label for="name" class="form-label">Name:<span class="required-mark-add"></span></label>
                         <div>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
                             @error('name')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            @if ($errors->has('name'))
-                            <span class="text-danger">{{ $errors->first('name') }}</span>
-                        @endif
+                            
                         </div>
 
                     </div>
@@ -30,7 +28,7 @@
                         <label for="email" class="form-label">Email:<span class="required-mark-add"></span></label>
                         <div>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email">
+                                name="email" value="{{ old('email') }}"  autocomplete="email">
                             @error('email')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -56,7 +54,7 @@
                     <div class="col">
                         <label for="password" class="form-label">Password:<span class="required-mark-add"></span></label>
                         <div class="input-group">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
                             <button type="button" id="toggle-password" class="btn btn-outline-secondary"><i class="bi bi-eye"></i></button>
                         </div>
                         @error('password')
@@ -96,7 +94,7 @@
                         <div>
                             <input id="profile_image" type="file"
                                 class="form-control-file @error('profile_image') is-invalid @enderror" name="profile_image"
-                                required>
+                                >
 
                             @error('profile_image')
                                 <span class="text-danger" role="alert">

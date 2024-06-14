@@ -11,4 +11,9 @@ class HomeController extends Controller
     {
         return view('toppage');
     }
+
+    public function home1()
+    {
+        return view('toppage1');
+    }
 }

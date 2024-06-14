@@ -86,11 +86,10 @@ class UserController extends Controller
     {
         $filters = $request->only(['name', 'gender']);
 
-        // Check if no gender checkboxes are selected
         if (!isset($filters['gender'])) {
-            $filters['gender'] = null; // No gender filter when none selected
+            $filters['gender'] = null;
         } elseif (is_array($filters['gender']) && count($filters['gender']) == 2) {
-            $filters['gender'] = null; // No gender filter when both are selected
+            $filters['gender'] = null; 
         }
 
         $users = $this->userService->search($filters);

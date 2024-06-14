@@ -1,0 +1,444 @@
+body {
+    width: 100%;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.reduce-width {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Start css header */
+.container {
+    width: 100%;
+    padding: 0;
+    max-width: 1156px;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    /* This centers the body horizontally */
+}
+
+.title-header {
+    margin: 16px 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-logo {
+    font-size: 41px;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.header-menu {
+    font-size: 16px;
+}
+
+.navbar-nav .nav-item {
+    padding-left: 10px;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #33C257;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 50%;
+    height: 2px;
+    background-color: #33C257;
+    margin-left: 10px;
+}
+
+.header-button {
+    display: flex;
+    gap: 10px;
+}
+
+.header-button .button-login,
+.header-button .button-signup {
+    height: 58px;
+    width: 100px;
+    background: linear-gradient(90deg, #1DE54F, #36BE58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.header-button .button-login:hover {
+    background: linear-gradient(90deg, #36BE58, #1DE54F);
+}
+
+.header-button .button-signup:hover {
+    background: linear-gradient(90deg, #36BE58, #1DE54F);
+}
+
+.button-login a,
+.button-signup a {
+    color: white;
+    text-decoration: none;
+}
+
+.custome-hr-header {
+    width: 95%;
+    margin: 0 auto;
+    height: 1px;
+    /* Chiều cao của đường kẻ */
+}
+
+.custome-hr-header hr {
+    margin: 0;
+}
+
+.custome-hr {
+    width: 100%;
+    margin: 0;
+    height: 1px;
+    /* Chiều cao của đường kẻ */
+}
+
+/* start css footer */
+footer {
+    margin-top: 120px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+}
+
+.search-footer {
+    text-align: center;
+}
+
+.title-footer {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.title-sub-footer {
+    height: 100%;
+    background-color: #383941;
+    height: 257px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border: #707070;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-sub-footer {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    /* Add some margin for spacing */
+}
+
+.item-search-footer {
+    margin-top: 30px;
+    height: 58px;
+    display: flex;
+}
+
+.item-search-sub-footer {
+    width: 409px;
+    height: 100%;
+    background-color: #FFFFFF;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.text-sub {
+    width: 100%;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    /* Remove border */
+    font-size: 15px;
+    /* Adjust font size as needed */
+    color: #333;
+    /* Text color */
+    outline: none;
+    /* Remove outline */
+}
+
+/* Add hover effect */
+.text-sub:hover {
+    border-color: #999;
+    /* Change border color on hover */
+}
+
+/* Add focus effect */
+.text-sub:focus {
+    border-color: #66afe9;
+    /* Change border color on focus */
+}
+
+.item-button-search-footer {
+    width: 154px;
+    height: 100%;
+    background: linear-gradient(90deg, #1DE54F, #36BE58);
+}
+
+.item-button-search-footer .text-but-sub {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+    /* Add cursor pointer */
+}
+
+/* Add hover effect to indicate interactivity */
+.item-button-search-footer .text-but-sub:hover {
+    background: linear-gradient(90deg, #36BE58, #1DE54F);
+    /* Reverse gradient on hover */
+}
+
+.contacts-title-footer {
+    padding: 70px;
+}
+
+.footer-title-contact {
+    line-height: 2.2;
+}
+
+.text-adress-contact {
+    line-height: 1.2;
+}
+
+.title-text-contact {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.text-contact {
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.footer-title-popular {
+    line-height: 2.2;
+}
+
+.contact-phone-number {
+    display: flex;
+}
+
+.contact-phone-number i {
+    margin-top: 7px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.title-contact-us {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 264px;
+    height: 52px;
+    background-color: #FFFFFF;
+    border: 2px solid #707070;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* This will center the text vertically */
+}
+
+.title-follow-us {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 264px;
+    height: 52px;
+    background-color: #FFFFFF;
+    border: 2px solid #707070;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-follow {
+    margin-top: 15px;
+}
+
+.title-block {
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    background-color: #EDEBEB;
+}
+
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-logo {
+        font-size: 20px;
+    }
+
+    .header-button .button-login,
+    .header-button .button-signup {
+        height: 40px;
+        width: 80px;
+    }
+
+    .contacts-title-footer {
+        width: 100%;
+        padding: 0;
+    }
+
+    .footer-title-contact,
+    .footer-title-popular,
+    .footer-right {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-right {
+        display: flex;
+        justify-content: center;
+    }
+
+    .text-sub-footer {
+        width: 80%;
+        margin-bottom: 0;
+    }
+
+    .title-text-contact {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    .text-adress-contact {
+        margin-bottom: 0;
+    }
+
+    .contact-phone-number {
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    .contact-phone-number .text-contact {
+        margin-bottom: 0;
+    }
+
+    .item-text-contact {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .title-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-button {
+        flex-direction: column;
+    }
+
+    .header-logo,
+    .header-menu,
+    .header-button {
+        width: 100%;
+        text-align: center;
+        display: ruby;
+    }
+
+    .item-search-footer {
+        flex-direction: column;
+    }
+
+    .item-search-sub-footer,
+    .item-button-search-footer {
+        width: 100%;
+    }
+
+    .contact-phone-number {
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    .contact-phone-number .text-contact {
+        margin-bottom: 0;
+    }
+
+    .item-text-contact {
+        margin-bottom: 0;
+    }
+
+    .title-contact-us, .title-follow-us {
+        margin-left: 55px;
+    }
+}
+
+@media (max-width: 390px) {
+    .title-header {
+        margin: 0;
+    }
+
+    .header-button {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .header-button .button-login,
+    .header-button .button-signup {
+        margin: 0 5px;
+    }
+
+    .contact-phone-number {
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    .contact-phone-number .text-contact {
+        margin-bottom: 0;
+    }
+
+    .item-text-contact {
+        margin-bottom: 0;
+    }
+
+    .title-contact-us, .title-follow-us {
+        margin-left: 40px;
+    }
+}
+

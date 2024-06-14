@@ -1,0 +1,153 @@
+.container-login .mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.title-text-login {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    font-size: 28px;
+    text-align: left;
+    font-weight: 700;
+    max-width: 100%;
+    margin: 0;
+}
+
+.row .login-form-import {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.form-login-text {
+    display: flex;
+    width: 100%;
+}
+
+.title-form-login {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.col-md-7 {
+    width: 70%;
+}
+
+.required-mark {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 5px;
+}
+
+.title-form-login-input {
+    background-color: #f2f2f2;
+    border: none;
+    color: #212529;
+    display: block;
+    font-size: .9rem;
+    font-weight: 400;
+    padding: .375rem .75rem;
+    width: 100%;
+    outline: none;
+}
+
+.checkbox-member-login {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.checkbox-tich {
+    text-align: center;
+}
+
+.tick-remember {
+    box-shadow: 3px 3px 6px #0000002b;
+}
+
+.title-chick-remember {
+    font-size: 15px;
+    display: inline-block;
+    padding-inline: inherit;
+}
+
+.button-form-login {
+    padding-top: 32px;
+}
+
+.button-password-login {
+    text-align: center;
+}
+
+.custom-button-password-login {
+    height: 56px;
+    width: 100%;
+}
+
+.button-login-custom {
+    border: transparent;
+    border-radius: 30px;
+    height: 56px;
+    width: 100%;
+    background: linear-gradient(90deg, #bccb05, #1eaa39, #0d6bc9);
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 20px 20px 25px rgba(0, 0, 0, .17);
+    transition: background-color 0.9s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+    cursor: pointer;
+}
+
+.button-login-custom:hover {
+    background: linear-gradient(90deg, #0d6bc9, #1eaa39, #bccb05);
+    margin-top: -10px;
+}
+
+.title-forgot-password {
+    padding-top: 10px;
+    margin: 0;
+    text-align: center;
+    height: 36px;
+    font-size: 15px;
+}
+
+.text-forgot-password {
+    margin: 0;
+}
+
+.button-form-register {
+    padding-top: 30px;
+}
+
+.button-register-custom {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    height: 56px;
+    background-color: #222;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 14px 20px;
+    color: white;
+    box-shadow: 20px 20px 25px rgba(0, 0, 0, .17);
+    transition: transform 0.3s ease;
+
+}
+
+.button-register-custom:hover {
+    transform: translateY(-10px);
+    color: #1eaa39;
+}
+
+.text-no-account {
+    text-align: center;
+    padding-top: 10px;
+}

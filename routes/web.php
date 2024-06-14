@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+
 
 Route::controller(UserController::class)
     ->prefix('users')
@@ -32,12 +34,24 @@ Route::controller(RegisterController::class)
         Route::get('/login', 'login')->name('login');
         Route::post('/signIn', 'signIn')->name('signIn');
         Route::get('/logout', 'logout')->name('logout');
+        Route::get('/forgot-password', 'forgotPasswordForm')->name('forgotPasswordForm');
+        Route::post('/forgot-password', 'forgotPassword')->name('forgotPassword');
+        Route::get('/verify-otp', 'verifyOTPForm')->name('verifyOTPForm');
+        Route::post('/verify-otp', 'verifyOTP')->name('verifyOTP');
         Route::get('/reset-password', 'resetPasswordForm')->name('resetPasswordForm');
         Route::post('/reset-password', 'resetPassword')->name('resetPassword');
+
     });
 
     Route::controller(HomeController::class)
     ->prefix('')
     ->group(function () {
         Route::get('/', 'home')->name('home');
+        Route::get('/1', 'home1')->name('home1');
+    });
+
+    Route::controller(PostController::class)
+    ->prefix('post')
+    ->group(function () {
+        Route::get('/detail', 'postDetail')->name('postDetail');
     });

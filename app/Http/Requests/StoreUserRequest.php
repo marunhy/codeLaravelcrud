@@ -12,7 +12,6 @@ class StoreUserRequest extends FormRequest
         return true;
     }
 
-
     public function rules(): array
     {
         return [
@@ -44,6 +43,4 @@ class StoreUserRequest extends FormRequest
             'profile_image.max' => 'Image must not be larger than :max KB.',
         ];
     }
-
-
 }

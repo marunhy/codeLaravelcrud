@@ -1,6 +1,17 @@
-@extends('layouts.layout')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{-- @vite(['resources/css/toppage.css']) --}}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+</head>
 
-@section('content')
+@extends('layouts.layout-page')
+@section('pagepost')
+<div class="custome-hr-header">
+    <hr>
+</div>
     <div class="container container-login">
         <div class="col-12 col-md-12 mx-auto row">
             <p class="title-text-login">Login</p>
@@ -42,30 +53,32 @@
                     </div>
                 </div>
                 <div class="row justify-content-md-center button-form-login">
-                    <div class="col-5 button-password-login">
+                    <div class="col-6 button-password-login">
                         <div class="custom-button-password-login">
                             <button type="submit" class="button-login-custom" id="loginButton">Log in</button>
                         </div>
                     </div>
-                    <div class="title-forgot-password">
+                    <a href="{{ route('forgotPasswordForm') }}" class="title-forgot-password">
                         <p class="text-forgot-password">Forgot your password?</p>
-                    </div>
+                    </a>
+                    <a></a>
                 </div>
                 <div class="row justify-content-md-center button-form-register">
-                    <div class="col-5 button-password-register">
-                            <div class="custom-button-password-register">
-                                <a href="{{ route('signUp') }}" class="button button-register-custom" id="registerButton">New member registration <i class="bi bi-arrow-up-right"></i>
-                                </a>
+                    <div class="col-6 button-password-register">
+                        <div class="custom-button-password-register">
+                            <a href="{{ route('signUp') }}" class="button button-register-custom" id="registerButton">New
+                                member registration <i class="bi bi-arrow-up-right"></i>
+                            </a>
 
-                            </div>
                         </div>
                     </div>
-                    <div class="title-no-account">
-                        <p class="text-no-account">Don't have an account?</p>
-                    </div>
                 </div>
-
-            </form>
+                <div class="title-no-account">
+                    <p class="text-no-account">Don't have an account?</p>
+                </div>
         </div>
+
+        </form>
+    </div>
     </div>
 @endsection

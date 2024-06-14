@@ -1,0 +1,443 @@
+    .container-fluid {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .banner-body-left {
+        width: 1440px;
+        padding-left: 190px;
+        padding-top: 100px;
+        text-align: justify;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .custom-banner-content-left {
+        width: 468px;
+        margin-right: 70px;
+    }
+
+    .text-title-myblog {
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 15px;
+        text-align: left;
+    }
+
+    .custom-banner-content-left {
+        width: 468px;
+        margin-right: 140px;
+    }
+
+    .text-item-mytravel {
+        font-size: 50px;
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        text-align: left;
+    }
+
+    .banner-body-left-title span {
+        text-align: left;
+    }
+
+    .banner-body-right {
+        margin-top: 55px;
+        height: 592px;
+        width: 878px;
+        overflow: hidden;
+    }
+
+    .banner-body {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .img-frame-banner {
+        position: absolute;
+    }
+
+    .img-frame-coating-banner {
+        position: relative;
+    }
+
+
+
+    .pagination-dots {
+        margin: 20px 0;
+    }
+
+    .dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .dot:hover,
+    .dot.active {
+        background: linear-gradient(90deg, #1DE54F, #36BE58);
+    }
+
+    .search-post {
+        margin-top: 60px;
+        width: 468px;
+        height: 59px;
+        display: flex;
+        text-align: left;
+    }
+
+    .title-search-post {
+        width: 100%;
+        height: 100%;
+        background-color: #FFFFFF;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+        box-shadow: 0 -3px 31px rgba(0, 0, 0, 0.07),
+            10px 0 31px rgba(0, 0, 0, 0.07),
+            0 10px 31px rgba(0, 0, 0, 0.07);
+    }
+
+    .title-search-post:hover {
+        box-shadow: 0 -3px 31px rgba(0, 0, 0, 0.13),
+            10px 0 31px rgba(0, 0, 0, 0.13),
+            0 10px 31px rgba(0, 0, 0, 0.13);
+    }
+
+    .text-search-blog {
+        width: 100%;
+        color: rgba(0, 0, 0);
+        margin: 0;
+        border: none;
+        outline: none;
+    }
+
+    .button-search-post {
+        width: 147px;
+        height: 100%;
+        background: linear-gradient(90deg, #1DE54F, #36BE58);
+        font-size: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .button-search-post button {
+        color: #ffffff;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        font-style: inherit;
+        padding: 0;
+        margin: 0;
+    }
+
+    .text-button-search {
+        color: #ffffff;
+        margin: 0;
+    }
+
+    .img-frame {
+        position: absolute;
+    }
+
+    .img-frame-coating {
+        position: relative;
+    }
+    /* end css banner */
+
+    /* start css post category */
+    .post-title-category {
+        padding-top: 50px;
+        padding-bottom: 70px;
+        width: 100%;
+    }
+
+    .post-category {
+        padding-top: 60px;
+        padding-bottom: 45px;
+    }
+
+    .custom-category {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 15px;
+        letter-spacing: 5px;
+    }
+
+    .text-item-category {
+        padding-top: 10px;
+        width: 450px;
+    }
+
+    .custom-title-category {
+        padding-top: 10px;
+        width: 359px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 50px;
+        line-height: 1.2;
+        /* Adjust this value as needed */
+    }
+
+    .text-readmore {
+        padding-left: 10px;
+        color: #0dcc39;
+        display: inline;
+        /* Ensure the "Read more" text remains inline */
+    }
+
+    .text-readmore a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .frame-image {
+        float: right;
+    }
+
+    .button-more {
+        display: flex;
+        justify-content: center;
+        padding-top: 45px;
+        border: #CBC9C9;
+    }
+
+    .button-load-more {
+        width: 240px;
+        height: 58px;
+        background: #F4F7F5;
+        border: 2px solid #CBC9C9;
+        border-radius: 5px;
+        color: #3d3E3D;
+        font-size: 16px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+
+    }
+    /* end css post category */
+
+    /* start css post latest */
+    .title-post-latest-text {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        width: 636px;
+
+    }
+
+    .item-post-latest {
+        font-size: 50px;
+        font-weight: 700;
+    }
+
+    .text-post-latest {
+        font-size: 18px;
+    }
+
+    .title-post-latest-card {
+        padding-top: 70px;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+    }
+
+    .card-post {
+        width: 345px;
+        height: 551px;
+        border: 2px #ffffff;
+        box-shadow: 0 -3px 35px rgba(0, 0, 0, 0.1),
+            /* Top shadow */
+            10px 0 35px rgba(0, 0, 0, 0.1),
+            /* Right shadow */
+            0 10px 35px rgba(0, 0, 0, 0.1);
+        /* Bottom shadow */
+    }
+
+    .card-post:hover {
+        box-shadow: 0 -3px 35px rgba(0, 0, 0, 0.3),
+            /* Top shadow */
+            10px 0 35px rgba(0, 0, 0, 0.3),
+            /* Right shadow */
+            0 10px 35px rgba(0, 0, 0, 0.3);
+        /* Bottom shadow */
+        margin-top: -10px !important;
+
+    }
+
+    .item-card-text {
+        padding-top: 30px;
+        padding-left: 30px;
+    }
+
+    .item-text-icon {
+        text-align: center;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        /* Add this line to space out the columns */
+    }
+
+    .item-text-icon-left,
+    .item-text-icon-right {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        /* Add this line to ensure both columns take equal space */
+    }
+
+    .item-text-icon-right {
+        float: right;
+        margin-right: -60px;
+    }
+
+    .item-text-icon-left .text-item-icon,
+    .item-text-icon-right .text-item-icon {
+        margin: 0;
+        font-size: 15px;
+        margin-left: 5px;
+    }
+
+    .custom-icon-size {
+        font-size: 20px;
+        /* Adjust the icon size as needed */
+    }
+
+
+    .item-card-title {
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 1.1;
+        padding-top: 25px;
+    }
+
+    .item-card-extend {
+        padding-top: 30px;
+        color: #3ABF5B;
+    }
+
+    .item-card-extend a {
+        text-decoration: none;
+        color: inherit;
+        /* Nếu bạn muốn liên kết có cùng màu với thẻ cha */
+    }
+    /* end css post latest */
+
+    /* Responsive styles */
+
+    @media (max-width: 768px) {
+        .custom-row-banner {
+            padding-left: 20px;
+            display: flex;
+            justify-content: center;
+            text-align: justify;
+
+        }
+
+        .banner-body-left {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .custom-banner-content-left {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .search-post {
+            width: 100%;
+        }
+
+        .custom-row-banner {
+            width: 100%;
+        }
+
+
+        .banner-body-right {
+            width: 100%;
+            height: auto;
+        }
+
+        .metnhucho {
+            width: 366px;
+            height: auto;
+        }
+
+        .metnhucho1 {
+            width: 366px;
+            height: auto;
+        }
+
+        .banner-body {
+            width: 100%;
+            padding: 0;
+        }
+
+        .post-title-category {
+            max-width: auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .text-item-category {
+            width: auto;
+        }
+
+        .post-category {
+            padding-left: 20px;
+        }
+
+        .custome-hr hr {
+            margin-left: 20px;
+        }
+
+        .custom-content-post-category {
+            padding-bottom: 20px;
+        }
+
+        .button-more {
+            margin-left: 20px;
+        }
+
+        .title-post-latest-text, .title-post-latest-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Căn giữa nếu cần */
+            text-align: center; /* Căn giữa nếu cần */
+        }
+
+        .card-title-post {
+            padding-bottom: 20px;
+        }
+
+        .custom-card-content-post {
+            max-width: 100%;
+        }
+
+        .card-post {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {}
+
+    @media (max-width: 390px) {}

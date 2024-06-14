@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-    @vite(['resources/css/user.css'])
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}">
     @vite('resources/js/user.js')
 
     <title></title>
@@ -30,23 +30,27 @@
                         <nav class="navbar navbar-expand-lg">
                             <div class="container-fluid">
                                 <a href="{{ route('home') }}" class="navbar-brand text-home">Home</a>
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link text-nav-item" aria-current="page" href="#">About</a>
+                                            <a class="nav-link text-nav-item" aria-current="page"
+                                                href="#">About</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link text-nav-item" href="#">List user</a>
-                                        </li>
+                                        @if (Auth::check())
+                                            <li class="nav-item">
+                                                <a class="nav-link text-nav-item" href="#">List user</a>
+                                            </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
                         </nav>
                     </div>
-
                     <div class="col-4">
                         <div class="row header-right">
                             <div class="col-5"></div>

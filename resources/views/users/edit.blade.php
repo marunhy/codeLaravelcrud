@@ -17,7 +17,7 @@
                             <div>
                                 <input id="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ old('name', $user->name) }}" required autofocus>
+                                    value="{{ old('name', $user->name) }}"  autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
                             <div>
                                 <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email', $user->email) }}" required>
+                                    value="{{ old('email', $user->email) }}" >
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -46,7 +46,7 @@
                                 <div class="input-group">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password" value="{{ old('password', $user->password) }}">
+                                         autocomplete="new-password" value="{{ old('password', $user->password) }}">
                                         <button type="button" id="toggle-password" class="btn btn-outline-secondary"><i class="bi bi-eye"></i></button>
                                 </div>
                                 @error('password')
