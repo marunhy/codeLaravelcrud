@@ -1,6 +1,15 @@
-@extends('layouts.layout')
-
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{-- @vite(['resources/css/postdetail.css']) --}}
+    <link rel="stylesheet" href="{{ asset('css/add.css') }}">
+    @vite('resources/js/user.js')
+    {{-- <script type="text/javascript" src="{{ URL::asset('js/user.js') }}"></script> --}}
+</head>
+@extends('layouts.layout-page')
+@section('pagepost')
     <div class="container bg-light p-4 rounded">
         <h1>Add new user</h1>
         <div class="lead">
@@ -35,18 +44,18 @@
                         </div>
                     </div>
                     <div class="col">
-                        <label for="password" class="form-label">Password:<span class="required-mark-add"></label>
-                        <div>
-                            <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="new-password">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        <label for="password" class="form-label">Password:<span class="required-mark-add"></span></label>
+                        <div class="input-group">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
+                            <button type="button" id="toggle-password" class="btn btn-outline-secondary"><i class="bi bi-eye"></i></button>
                         </div>
+                        @error('password')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
+
                     {{-- <div class="col">
                         <label for="gender" class="form-label">Gender:<span class="required-mark-add"> </label>
                         <div class="d-flex align-items-center">

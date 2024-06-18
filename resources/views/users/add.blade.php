@@ -1,8 +1,16 @@
-@extends('layouts.layout')
-
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{-- @vite(['resources/css/users.css']) --}}
+    @vite('resources/js/user.js')
+    <link rel="stylesheet" href="{{ asset('css/add.css') }}">
+</head>
+@extends('layouts.layout-page')
+@section('pagepost')
     <div class="container bg-light p-4 rounded">
-        <h1>Add new user</h1>
+        <h1 class="text-title">Add new user</h1>
         <div class="lead">
             Add new user and assign role.
         </div>
@@ -20,7 +28,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            
+
                         </div>
 
                     </div>
@@ -93,8 +101,7 @@
                         <label for="profile_image" class="form-label">Image:<span class="required-mark-add"></span></label>
                         <div>
                             <input id="profile_image" type="file"
-                                class="form-control-file @error('profile_image') is-invalid @enderror" name="profile_image"
-                                >
+                                class="form-control-file @error('profile_image') is-invalid @enderror" name="profile_image">
 
                             @error('profile_image')
                                 <span class="text-danger" role="alert">

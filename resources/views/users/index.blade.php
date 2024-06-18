@@ -1,10 +1,17 @@
-@extends('layouts.layout')
-
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{-- @vite(['resources/css/postdetail.css']) --}}
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+</head>
+@extends('layouts.layout-page')
+@section('pagepost')
     <div class="container bg-light p-4 rounded">
 
         <div class="row justify-content-evenly">
-            <div class="col-8">
+            <div class="col-8 col-md-8">
                 <h1>User</h1>
 
                 @include('layouts.partials.messages')
@@ -17,26 +24,26 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col" width="26px">#</th>
-                            <th scope="col" width="279px">Name</th>
-                            <th scope="col" width="266px">Email</th>
-                            <th scope="col" width="58px">Image</th>
-                            <th scope="col" width="78px">Gender</th>
-                            <th scope="col" width="260px" colspan="3">Option</th>
+                            <th scope="col" width="1%">#</th>
+                            <th scope="col" width="">Name</th>
+                            <th scope="col" width="30%">Email</th>
+                            <th scope="col" width="15%">Image</th>
+                            <th scope="col" width="10%">Gender</th>
+                            <th scope="col" width="15%" colspan="3">Option</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <th scope="col" width="26px">
+                                <th scope="col" >
                                     {{ $loop->iteration + ($users->currentPage() - 1) * $users->perPage() }}</th>
-                                <td scope="col" width="279px">{{ $user->name }}</td>
-                                <td scope="col" width="266px">{{ $user->email }}</td>
-                                <td width="58px">
+                                <td scope="col">{{ $user->name }}</td>
+                                <td scope="col">{{ $user->email }}</td>
+                                <td>
                                     <img src="{{ $user->profile_image }}" class="img-circle" alt="User Image" width="50"
                                         height="50">
                                 </td>
-                                <td width="78px">{{ $user->gender ? 'male' : 'female' }}</td>
+                                <td>{{ $user->gender ? 'male' : 'female' }}</td>
                                 <td><a href="{{ route('show', $user->id) }}"> <i class="bi bi-eye-fill"></i></a></td>
                                 <td><a href="{{ route('edit', $user->id) }}"><i class="bi bi-pencil-square"></i></a></td>
                                 <td>
@@ -57,7 +64,7 @@
                     {{ $users->links() }}
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-3 col-md-3">
                 <div class="form-search">
                     <div class="item-search">
                         <hr>

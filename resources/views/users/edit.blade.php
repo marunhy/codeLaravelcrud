@@ -1,6 +1,14 @@
-@extends('layouts.layout')
-
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{-- @vite(['resources/css/postdetail.css']) --}}
+    @vite('resources/js/user.js')
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+</head>
+@extends('layouts.layout-page')
+@section('pagepost')
     <div class="container bg-light p-4 rounded">
         <div>
             <h2>Update user</h2>
@@ -9,7 +17,6 @@
                 @method('patch')
                 @csrf
                 <input type="hidden" name="userId" value="{{ $user->id }}">
-
                 <div class="row">
                     <div class="col-6 float-left">
                         <div class="col">
@@ -24,7 +31,6 @@
                                     </span>
                                 @enderror
                             </div>
-
                         </div>
                         <div class="col">
                             <label for="email" class="form-label">Email:<span class="required-mark-add"></span></label>
@@ -79,7 +85,6 @@
                                     </span>
                                 @enderror
                             </div>
-
                         </div>
                         <div class="col">
                             <div class="button-page-edit">
@@ -101,7 +106,6 @@
                             @enderror
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>

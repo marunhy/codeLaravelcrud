@@ -27,6 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+
     {{-- @vite(['resources/css/layoutpage.css']) --}}
     <link rel="stylesheet" href="{{ asset('css/layoutpage.css') }}">
     <title>Document</title>
@@ -68,12 +69,34 @@
                     </nav>
                 </div>
                 <div class="col-6 col-md-2 header-button mb-2">
-                    <div class="button-login">
-                        <a href="{{ route('login') }}">Login</a>
-                    </div>
-                    <div class="button-signup">
-                        <a href="{{ route('signUp') }}">Sign up</a>
-                    </div>
+                    @if (Auth::check())
+                        <div class="dropdown">
+                            <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <div>
+                                    <img src="{{ asset(Auth::user()->profile_image) }}" class="rounded-circle"
+                                        alt="Circular Image" width="50" height="50"> <br>
+                                </div>
+                                <div>
+                                    <span class="text-name-user"> {{ Auth::user()->name }}</span>
+                                </div>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                            </ul>
+                        </div>
+                    @else
+                        <div class="button-login">
+                            <a href="{{ route('login') }}">Login</a>
+                        </div>
+                        <div class="button-signup">
+                            <a href="{{ route('signUp') }}">Sign up</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -127,7 +150,6 @@
                             <div class="title-block"></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

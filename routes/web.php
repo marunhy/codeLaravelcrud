@@ -40,18 +40,20 @@ Route::controller(RegisterController::class)
         Route::post('/verify-otp', 'verifyOTP')->name('verifyOTP');
         Route::get('/reset-password', 'resetPasswordForm')->name('resetPasswordForm');
         Route::post('/reset-password', 'resetPassword')->name('resetPassword');
-
     });
 
-    Route::controller(HomeController::class)
+Route::controller(HomeController::class)
     ->prefix('')
     ->group(function () {
         Route::get('/', 'home')->name('home');
-        Route::get('/1', 'home1')->name('home1');
     });
 
-    Route::controller(PostController::class)
+Route::controller(PostController::class)
     ->prefix('post')
     ->group(function () {
-        Route::get('/detail', 'postDetail')->name('postDetail');
+        Route::get('/', 'indexpost')->name('indexpost');
+        Route::get('/create', 'createpost')->name('createpost');
+        Route::post('/create', 'storepost')->name('storepost');
+        Route::get('/postDetail', 'postDetail')->name('postDetail');
+        Route::post('/upload', 'upload')->name('ckeditor.upload');
     });

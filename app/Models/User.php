@@ -31,4 +31,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'gender' => 'boolean',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    // Một user có nhiều attachments
+    // public function attachments()
+    // {
+    //     return $this->hasMany(Attachment::class);
+    // }
 }

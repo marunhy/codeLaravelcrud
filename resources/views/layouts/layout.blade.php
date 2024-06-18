@@ -55,42 +55,44 @@
                         <div class="row header-right">
                             <div class="col-5"></div>
                             <div class="col-7 ">
-                                @if (Auth::check())
-                                    <div class="dropdown">
-                                        <button class="btn dropdown-toggle no-arrow" type="button"
-                                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <div>
-                                                <img src="{{ asset(Auth::user()->profile_image) }}"
-                                                    class="rounded-circle" alt="Circular Image" width="50"
-                                                    height="50"> <br>
-                                            </div>
-                                            <div>
-                                                <span class="text-white"> {{ Auth::user()->name }}</span>
-                                            </div>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#">My Profile</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-                                        </ul>
+
+                                <a href="{{ route('signUp') }}" class="navbar-brand icon-size-signup">
+                                    <div class="icon">
+                                        <i class="bi bi-pencil-square icon-size"></i>
                                     </div>
-                                @else
-                                    <a href="{{ route('signUp') }}" class="navbar-brand icon-size-signup">
-                                        <div class="icon">
-                                            <i class="bi bi-pencil-square icon-size"></i>
+                                    @if (Auth::check())
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle no-arrow" type="button"
+                                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <div>
+                                                    <img src="{{ asset(Auth::user()->profile_image) }}"
+                                                        class="rounded-circle" alt="Circular Image" width="50"
+                                                        height="50"> <br>
+                                                </div>
+                                                <div>
+                                                    <span class="text-black"> {{ Auth::user()->name }}</span>
+                                                </div>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                                                </li>
+                                            </ul>
                                         </div>
+                                    @else
                                         <span class="tex-icon-signup">Sign up</span>
-                                    </a>
-                                    <a href="{{ route('login') }}" class="navbar-brand icon-size-login">
-                                        <div class="icon2">
-                                            <i class="bi bi-box-arrow-in-right icon-size"></i>
-                                        </div>
-                                        <div>
-                                            <span class="tex-icon-Login">Log in</span>
-                                        </div>
-                                    </a>
+                                </a>
+                                <a href="{{ route('login') }}" class="navbar-brand icon-size-login">
+                                    <div class="icon2">
+                                        <i class="bi bi-box-arrow-in-right icon-size"></i>
+                                    </div>
+                                    <div>
+                                        <span class="tex-icon-Login">Log in</span>
+                                    </div>
+                                </a>
                                 @endif
                             </div>
                         </div>

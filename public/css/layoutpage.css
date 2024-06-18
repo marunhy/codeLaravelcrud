@@ -221,6 +221,7 @@ footer {
 
 .contacts-title-footer {
     padding: 70px;
+    padding-bottom: 0;
 }
 
 .footer-title-contact {
@@ -299,6 +300,16 @@ footer {
     margin-left: 15px;
     background-color: #EDEBEB;
 }
+
+.dropdown {
+    border: none;
+    height: auto;
+}
+
+.text-name-user {
+    color: #000000; /* Màu đen */
+}
+
 
 /* Responsive Design */
 /* Responsive Design */

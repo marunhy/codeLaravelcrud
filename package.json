@@ -10,5 +10,8 @@
         "laravel-mix": "^6.0.49",
         "laravel-vite-plugin": "^1.0.4",
         "vite": "^5.2.13"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^41.4.2"
     }
 }

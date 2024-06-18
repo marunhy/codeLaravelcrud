@@ -4,14 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/toppage.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    @vite('resources/js/user.js')
+    {{-- <link rel="stylesheet" href="{{ asset('css/login.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{asset('css/login.css')}}"> --}}
+    @vite('resources/css/login.css')
+
 </head>
 
 @extends('layouts.layout-page')
 @section('pagepost')
-<div class="custome-hr-header">
-    <hr>
-</div>
+    <div class="custome-hr-header">
+        <hr>
+    </div>
     <div class="container container-login">
         <div class="col-12 col-md-12 mx-auto row">
             <p class="title-text-login">Login</p>
@@ -38,12 +42,24 @@
                         <span class="required-mark"></span>
                     </div>
                     <div class="col-md-12">
-                        <input type="password" name="password" class="title-form-login-input" id="password">
+                        <div class="password-container">
+                            <input type="password" name="password" class="title-form-login-input" id="password">
+                            <button type="button" id="toggle-password" class="toggle-password-btn">
+                                <i id="toggle-password-icon" class="bi bi-eye"></i>
+                            </button>
+                        </div>
                         @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                         @endif
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
+
                 </div>
+
                 <div class="row checkbox-member-login">
                     <div class="col-md-12 checkbox-tich">
                         <input type="checkbox" id="remember" name="remember" class="form-check-input tick-remember">
