@@ -58,13 +58,13 @@ class PostService
         ];
     }
 
-    public function showPost($id)
+    public function showPost($postId)
     {
         try {
-            $post = Post::with('attachments')->findOrFail($id); // Eager load attachments
+            $post = Post::with('attachments')->findOrFail($postId); // Eager load attachments
             return $post;
         } catch (ModelNotFoundException $e) {
-            throw new \Exception("Post not found with ID: $id");
+            throw new \Exception("Post not found with ID: $postId");
         }
     }
 }

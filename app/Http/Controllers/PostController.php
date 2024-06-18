@@ -54,10 +54,10 @@ class PostController extends Controller
         }
     }
 
-    public function showPost(string $id)
+    public function showPost(string $postId)
 {
     try {
-        $post = $this->postService->showPost($id);
+        $post = $this->postService->showPost($postId);
         return view('posts.post-detail', ['post' => $post]);
     } catch (\Exception $e) {
         // Handle the exception as needed, for example, redirect to a not found page or show an error message
