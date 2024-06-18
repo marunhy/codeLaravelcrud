@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UploadFileRequest;
 use App\Models\Post;
 use App\Models\Attachment;
 use App\Services\PostService;
@@ -26,8 +27,7 @@ class PostController extends Controller
 
     public function indexpost()
     {
-        $posts = Post::latest()->get(); // Lấy danh sách bài viết mới nhất
-
+        $posts = $this->postService->indexpost();
         return view('posts.home', compact('posts'));
     }
 
@@ -45,16 +45,23 @@ class PostController extends Controller
         return view('posts.post-detail');
     }
 
-    public function upload(Request $request)
+    public function upload(UploadFileRequest $request)
     {
         if ($request->hasFile('upload')) {
-            $originName = $request->file('upload')->getClientOriginalName();
-            $fileName = pathinfo($originName, PATHINFO_FILENAME);
-            $extension = $request->file('upload')->getClientOriginalExtension();
-            $fileName = $fileName . '.' .$extension;
-            $request->file('upload')->move(public_path('media'), $fileName);
-            $url = asset('/media/' . $fileName);
-            return response()->json(['fileName' => $fileName, 'uploaded'=>1, 'rul' => $url]);
+            $file = $request->file('upload');
+            $result = $this->postService->upload($file);
+            return response()->json($result);
         }
     }
+
+    public function showPost(string $id)
+{
+    try {
+        $post = $this->postService->showPost($id);
+        return view('posts.post-detail', ['post' => $post]);
+    } catch (\Exception $e) {
+        // Handle the exception as needed, for example, redirect to a not found page or show an error message
+        return redirect()->route('indexpost')->with('error', $e->getMessage());
+    }
+}
 }

@@ -2,6 +2,11 @@
     display: grid;
 }
 
+.custom-content textarea{
+    height: 500px;
+}
+
 .ck-editor {
     max-width: 762.662px;
 }
+

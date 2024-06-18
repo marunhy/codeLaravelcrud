@@ -56,4 +56,8 @@ Route::controller(PostController::class)
         Route::post('/create', 'storepost')->name('storepost');
         Route::get('/postDetail', 'postDetail')->name('postDetail');
         Route::post('/upload', 'upload')->name('ckeditor.upload');
+        Route::prefix('{id}')
+            ->group(function () {
+                Route::get('/showPost', 'showPost')->name('showPost');
+            });
     });

@@ -203,7 +203,7 @@
                                         <p class="post-title">{{ $post->title }}</p>
                                     </div>
                                     <div class="item-card-extend">
-                                        <p><a href="{{ route('postDetail', ['id' => $post->id]) }}">Read More</a></p>
+                                        <p><a href="{{ route('showPost', $post->id) }}">Read More</a></p>
                                     </div>
                                 </div>
                             </div>

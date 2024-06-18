@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/postdetail.css') }}">
 </head>
 
-@extends('layouts.layout-page')
+{{-- @extends('layouts.layout-page')
 @section('pagepost')
     <div class="container-fluid">
         <div class="img-banner">
@@ -168,4 +168,25 @@
             </div>
         </div>
     </div>
+@endsection --}}
+
+@extends('layouts.layout-page')
+
+@section('pagepost')
+    <div class="container-fluid">
+        <div class="img-banner">
+            @foreach ($post->attachments as $attachment)
+            <img src="{{ asset($attachment->image_url) }}" alt="profile Pic" class="custom-img-banner">
+            @endforeach
+            <p class="title-text-post-banner">{{ $post->title }}</p>
+        </div>
+        <div class="container">
+            <div class="content-blog">
+                <div class="text-content-blog">
+                    {!! $post->content !!} <!-- Display the content of the post -->
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+

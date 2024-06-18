@@ -23,7 +23,7 @@
 
                     <div class="form-group custom-content">
                         <label for="editor">Content:</label>
-                        <textarea class="form-control" name="content" id="editor"></textarea>
+                        <textarea class="form-control write-custom-content" name="content" id="editor"></textarea>
                     </div>
 
                     <div class="form-group">
