@@ -1,0 +1,66 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dashboard-left {
+    background: #174A84;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.sidebar-brand {
+    text-decoration: none;
+    height: 100px;
+}
+
+.sidebar-brand-text {
+    font-size: 25px;
+    color: aliceblue;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 700;
+}
+
+.custom-hr-title {
+    width: 90%;
+    color: aliceblue;
+    margin: 0 auto;
+}
+
+.custome-menu-manage {
+    color: #fff;
+}
+
+.item-dashboard {
+    font-size: 18px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.item-dashboard a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 0 20px;
+}
+
+.item-dashboard a i {
+    margin-right: 10px;
+}
+
+.static-top {
+    height: 100px;
+    background-color: aquamarine;
+}
+
+.dashboard-right {
+    padding: 0;
+}
+
+
