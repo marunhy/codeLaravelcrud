@@ -4,8 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/users.css']) --}}
-    {{-- @vite('resources/js/user.js') --}}
-    <script src="{{ asset('js/user.js') }}"></script>
+    @vite('resources/js/user.js')
+    {{-- <script src="{{ asset('js/user.js') }}"></script> --}}
     <link rel="stylesheet" href="{{ asset('css/add.css') }}">
 </head>
 @extends('layouts.layout-page')
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="btn-savenew">
-                        <button type="submit" class="btn btn-primary">Add new</button>
+                        <button type="submit" class="btn btn-primary" id="submitButton" onclick="this.disabled=true; this.form.submit();">Add new</button>
                         <a href="{{ route('index') }}" class="btn btn-default">Back</a>
                     </div>
                 </div>

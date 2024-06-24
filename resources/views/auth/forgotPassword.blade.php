@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/forgotPassword.css') }}">
 </head>
 @extends('layouts.layout-page')
+
 @section('pagepost')
     <div class="container container-forgotPassword">
         <div class="row forgotPassword justify-content-center">
@@ -16,7 +17,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="email">Email address:<span class="required-mark-signup"></span></label>
-                        <input type="email" name="email" id="email" class="form-control frame-input-email">
+                        <input type="email" name="email" id="email" class="form-control frame-input-email" required>
                         @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif

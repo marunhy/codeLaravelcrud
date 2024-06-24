@@ -4,9 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/postdetail.css']) --}}
-    {{-- @vite('resources/js/user.js') --}}
+    @vite('resources/js/user.js')
     <link rel="stylesheet" href="{{ asset('css/waiting.css') }}">
-    <script src="{{ asset('js/user.js') }}"></script>
+    {{-- <script src="{{ asset('js/user.js') }}"></script> --}}
 </head>
 @extends('layouts.layout-page')
 @section('pagepost')

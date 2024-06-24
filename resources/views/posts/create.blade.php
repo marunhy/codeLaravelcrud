@@ -4,9 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/toppage.css']) --}}
-    {{-- @vite('resources/js/user.js') --}}
+    @vite('resources/js/user.js')
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
-    <link rel="stylesheet" href="{{ asset('css/createpost.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/createpost.css') }}"> --}}
 </head>
 @extends('admin.dashboard')
 
@@ -41,7 +41,7 @@
                         <input type="file" id="images" name="images[]" class="form-control" multiple>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary" id="submitButton" onclick="this.disabled=true; this.form.submit();">Create</button>
                     <a href="{{ route('managePosts') }}" class="btn btn-default">Back</a>
 
                 </form>

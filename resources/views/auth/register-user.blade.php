@@ -4,9 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/postdetail.css']) --}}
-    {{-- @vite('resources/js/user.js') --}}
+    @vite('resources/js/user.js')
     <link rel="stylesheet" href="{{ asset('css/add.css') }}">
-    <script src="{{ asset('js/user.js') }}"></script>
+    {{-- <script src="{{ asset('js/user.js') }}"></script> --}}
 </head>
 @extends('layouts.layout-page')
 @section('pagepost')
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <div class="btn-savenew">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary" id="submitButton" onclick="this.disabled=true; this.form.submit();">Save</button>
                         <a href="{{ route('signUp') }}" class="btn btn-default">Back</a>
                     </div>
                 </div>

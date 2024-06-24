@@ -1,22 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const passwordField = document.getElementById('password');
-    const togglePasswordBtn = document.getElementById('toggle-password');
-    const togglePasswordIcon = document.getElementById('toggle-password-icon');
-
-    togglePasswordBtn.addEventListener('click', function () {
-        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordField.setAttribute('type', type);
-
-        // Change icon based on password visibility
-        if (type === 'password') {
-            togglePasswordIcon.classList.remove('bi-eye-slash');
-            togglePasswordIcon.classList.add('bi-eye');
-        } else {
-            togglePasswordIcon.classList.remove('bi-eye');
-            togglePasswordIcon.classList.add('bi-eye-slash');
-        }
-    });
-});
 
 document.addEventListener('DOMContentLoaded', function () {
     const togglePasswordBtns = document.querySelectorAll('.toggle-password');

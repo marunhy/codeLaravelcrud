@@ -23,6 +23,7 @@ class ForgotPasswordRequest extends FormRequest
         return [
             'email.required' => 'The email field is required.',
             'email.email' => 'The email must be a valid email address.',
+
         ];
     }
 }
