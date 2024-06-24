@@ -4,11 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/postdetail.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/post/postdetail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/shows.css') }}">
 </head>
-@extends('layouts.layout-page')
+@extends('admin.dashboard')
 
-@section('pagepost')
+@section('adminpage')
     <div class="container-fluid">
         <div class="img-banner">
             @foreach ($post->attachments as $attachment)
@@ -19,10 +19,11 @@
         <div class="container">
             <div class="content-blog">
                 <div class="text-content-blog">
-                    {!! $post->content !!} <!-- Display the content of the post -->
+                    {!! $post->content !!}
                 </div>
             </div>
         </div>
+        <a href="{{ route('managePosts') }}" class="btn btn-primary">Back</a>
     </div>
 @endsection
 

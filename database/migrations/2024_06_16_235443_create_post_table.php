@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('content');
+            $table->timestamp('deleted_at')->nullable(); // Thêm cột deleted_at để lưu trữ thời gian xóa
             $table->timestamps();
         });
     }

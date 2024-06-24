@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UploadFileRequest;
+use App\Http\Requests\EditPostRequest;
 use App\Models\Post;
-use App\Models\Attachment;
+use App\Models\Category;
 use App\Services\PostService;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,29 +21,29 @@ class PostController extends Controller
         $this->postService = $postService;
     }
 
-    public function createpost()
-    {
-        return view('posts.create');
-    }
-
     public function indexpost()
     {
         $posts = $this->postService->indexpost();
         return view('posts.home', compact('posts'));
     }
 
+    public function managePosts()
+    {
+        $posts = $this->postService->managePosts();
+        return view('posts.manage', compact('posts'));
+    }
+
+    public function createpost()
+    {
+        $categories = Category::all(); // Fetch all categories
+        return view('posts.create', compact('categories'));
+    }
+
     public function storepost(StorePostRequest $request)
     {
         $validatedData = $request->validated();
-
         $this->postService->storepost($validatedData, $request->file('images'));
-
-        return redirect()->route('indexpost')->with('success', __('Bài viết đã được đăng thành công'));
-    }
-
-    public function postDetail()
-    {
-        return view('posts.post-detail');
+        return redirect()->route('managePosts')->with('success', __('Bài viết đã được đăng thành công'));
     }
 
     public function upload(UploadFileRequest $request)
@@ -54,14 +55,50 @@ class PostController extends Controller
         }
     }
 
-    public function showPost(string $id)
-{
-    try {
-        $post = $this->postService->showPost($id);
-        return view('posts.post-detail', ['post' => $post]);
-    } catch (\Exception $e) {
-        // Handle the exception as needed, for example, redirect to a not found page or show an error message
-        return redirect()->route('indexpost')->with('error', $e->getMessage());
+    public function showPost(string $postId)
+    {
+        try {
+            $post = $this->postService->showPost($postId);
+            return view('posts.showpost', ['post' => $post]);
+        } catch (\Exception $e) {
+            return redirect()->route('managePosts')->with('error', $e->getMessage());
+        }
     }
+
+
+    public function postDetail(string $postId)
+    {
+        try {
+            $post = $this->postService->postDetail($postId);
+            return view('posts.post-detail', ['post' => $post]);
+        } catch (\Exception $e) {
+            return redirect()->route('indexpost')->with('error', $e->getMessage());
+        }
+    }
+
+    public function editpostForm($postId)
+    {
+        $post = $this->postService->showPost($postId);
+        $categories = Category::all(); // Fetch all categories
+        return view('posts.edit', compact('post', 'categories'));
+    }
+
+    public function editpost(EditPostRequest $request, $postId)
+{
+    $validatedData = $request->validated();
+    $this->postService->editpost($postId, $validatedData, $request->file('images'));
+    return redirect()->route('managePosts')->with('success', __('Bài viết đã được cập nhật thành công'));
 }
+
+
+    public function deletepost($postId)
+    {
+        try {
+            $this->postService->deletepost($postId);
+            return redirect()->route('managePosts')->with('success', __('Bài viết đã được xóa thành công'));
+        } catch (\Exception $e) {
+            return redirect()->route('managePosts')->with('error', $e->getMessage());
+        }
+    }
+
 }

@@ -12,5 +12,10 @@ class HomeController extends Controller
         return view('toppage');
     }
 
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
+
 
 }
