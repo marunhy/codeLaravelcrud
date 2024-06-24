@@ -37,9 +37,26 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    // Một user có nhiều attachments
-    // public function attachments()
-    // {
-    //     return $this->hasMany(Attachment::class);
-    // }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_role');
+    }
+
+    // Check if user has a specific role
+    public function hasRole($role)
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
+
+    // Check if user is an admin
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
+    }
+
+    // Check if user is a regular user
+    public function isUser()
+    {
+        return $this->hasRole('user');
+    }
 }

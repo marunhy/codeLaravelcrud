@@ -89,7 +89,7 @@ class UserController extends Controller
         if (!isset($filters['gender'])) {
             $filters['gender'] = null;
         } elseif (is_array($filters['gender']) && count($filters['gender']) == 2) {
-            $filters['gender'] = null; 
+            $filters['gender'] = null;
         }
 
         $users = $this->userService->search($filters);

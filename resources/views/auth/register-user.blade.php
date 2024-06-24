@@ -4,9 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/postdetail.css']) --}}
+    {{-- @vite('resources/js/user.js') --}}
     <link rel="stylesheet" href="{{ asset('css/add.css') }}">
-    @vite('resources/js/user.js')
-    {{-- <script type="text/javascript" src="{{ URL::asset('js/user.js') }}"></script> --}}
+    <script src="{{ asset('js/user.js') }}"></script>
 </head>
 @extends('layouts.layout-page')
 @section('pagepost')
@@ -46,8 +46,8 @@
                     <div class="col">
                         <label for="password" class="form-label">Password:<span class="required-mark-add"></span></label>
                         <div class="input-group">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
-                            <button type="button" id="toggle-password" class="btn btn-outline-secondary"><i class="bi bi-eye"></i></button>
+                            <input id="password" type="password" class="form-control password-field @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+                            <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bi bi-eye"></i></button>
                         </div>
                         @error('password')
                             <span class="text-danger" role="alert">
@@ -55,28 +55,6 @@
                             </span>
                         @enderror
                     </div>
-
-                    {{-- <div class="col">
-                        <label for="gender" class="form-label">Gender:<span class="required-mark-add"> </label>
-                        <div class="d-flex align-items-center">
-                            <div class="form-check me-3">
-                                <input class="form-check-input" type="radio" name="gender" id="male"
-                                    value="{{ config('const.table.user.gender.male') }}">
-                                <label class="form-check-label"
-                                    for="male">{{ config('const.table.user.gender_name')[1] }}</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="female"
-                                    value="{{ config('const.table.user.gender.female') }}">
-                                <label class="form-check-label"
-                                    for="female">{{ config('const.table.user.gender_name')[0] }}</label>
-                            </div>
-                        </div>
-                        @error('gender')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
-                    </div> --}}
-
                     <div class="col">
                         <label for="gender" class="form-label">Gender:<span class="required-mark-add"> </label>
                         <div>
@@ -103,16 +81,6 @@
                             @enderror
                         </div>
                     </div>
-
-                    {{-- <div class="col">
-                        <label for="profile_image" class="form-label">Image:<span class="required-mark-add"></label>
-                        <input value="{{ old('profile_image') }}" type="file" class="form-control" name="profile_image"
-                            placeholder="Picture">
-                        @error('profile_image')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
-                    </div> --}}
-
                     <div class="col">
                         <label for="profile_image" class="form-label">Image:<span class="required-mark-add"></label>
                         <div>
@@ -136,4 +104,3 @@
         </div>
     </div>
 @endsection
-

@@ -6,9 +6,8 @@
     {{-- @vite(['resources/css/postdetail.css']) --}}
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
-@extends('layouts.layout-page')
-@section('pagepost')
-    <div class="container bg-light p-4 rounded">
+@extends('admin.dashboard')
+@section('adminpage')
 
         <div class="row justify-content-evenly">
             <div class="col-8 col-md-8">
@@ -37,8 +36,8 @@
                             <tr>
                                 <th scope="col" >
                                     {{ $loop->iteration + ($users->currentPage() - 1) * $users->perPage() }}</th>
-                                <td scope="col">{{ $user->name }}</td>
-                                <td scope="col">{{ $user->email }}</td>
+                                <td scope="col">{{Str::limit( $user->name, 20) }}</td>
+                                <td scope="col">{{Str::limit(  $user->email, 20) }}</td>
                                 <td>
                                     <img src="{{ $user->profile_image }}" class="img-circle" alt="User Image" width="50"
                                         height="50">
@@ -51,7 +50,8 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                            style="background: none; border: none; padding: 0; cursor: pointer; color:red">
+                                            style="background: none; border: none; padding: 0; cursor: pointer; color:red"
+                                            onclick="return confirm('Are you sure you want to delete this user?')">
                                             <i class="bi bi-trash3-fill"></i>
                                         </button>
                                     </form>
@@ -99,5 +99,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

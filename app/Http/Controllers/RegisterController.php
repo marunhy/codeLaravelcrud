@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Role;
 use App\Http\Requests\SendMailRegisterRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\ForgotPasswordRequest;
@@ -80,9 +81,13 @@ class RegisterController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('index');
+            // Check user's roles
+            if (Auth::user()->hasRole('admin')) {
+                return redirect()->route('dashboard');
+            } else {
+                return redirect()->route('indexpost');
+            }
         }
-
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
@@ -93,7 +98,7 @@ class RegisterController extends Controller
         Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('home');
+        return redirect()->route('indexpost');
     }
 
     private function getImage($file)

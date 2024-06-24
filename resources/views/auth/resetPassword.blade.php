@@ -4,8 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/toppage.css']) --}}
-    @vite('resources/js/user.js')
-
+    {{-- @vite('resources/js/user.js') --}}
+    <script src="{{ asset('js/user.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/add.css') }}">
 </head>
 @extends('layouts.layout-page')
@@ -31,10 +31,8 @@
                 <div class="form-group">
                     <label for="password" class="form-label">New Password:<span class="required-mark-add"></span></label>
                     <div class="input-group">
-                        <input id="password" type="password" class="form-control password-field" name="password"
-                            autocomplete="new-password">
-                        <button type="button" class="btn btn-outline-secondary toggle-password"><i
-                                class="bi bi-eye"></i></button>
+                        <input id="password" type="password" class="form-control password-field" name="password" autocomplete="new-password">
+                        <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bi bi-eye"></i></button>
                     </div>
                     @error('password')
                         <span class="text-danger" role="alert">
@@ -42,31 +40,13 @@
                         </span>
                     @enderror
                 </div>
-
-                {{-- <div class="form-group">
-                    <label for="password" class="form-label">Confirm Password:<span class="required-mark-add"></span></label>
-                        <div class="input-group">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
-                            <button type="button" id="toggle-password" class="btn btn-outline-secondary"><i class="bi bi-eye"></i></button>
-                        </div>
-                        @error('password')
-                            <span class="text-danger" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    @if ($errors->has('new-password_confirmation'))
-                        <span class="text-danger">{{ $errors->first('new-password_confirmation') }}</span>
-                    @endif
-                </div> --}}
                 <div class="form-group">
                     <label for="confirm-password" class="form-label">Confirm Password:<span
                             class="required-mark-add"></span></label>
-                    <div class="input-group">
-                        <input id="confirm-password" type="password" class="form-control password-field"
-                            name="password_confirmation" autocomplete="new-password">
-                        <button type="button" class="btn btn-outline-secondary toggle-password"><i
-                                class="bi bi-eye"></i></button>
-                    </div>
+                            <div class="input-group">
+                                <input id="confirm-password" type="password" class="form-control password-field" name="password_confirmation" autocomplete="new-password">
+                                <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bi bi-eye"></i></button>
+                            </div>
                     @error('password')
                         <span class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>

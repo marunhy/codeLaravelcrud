@@ -32,7 +32,7 @@
             <div class="row justify-content-evenly form-button-signup">
                 <div class="col-5 custom-button">
                     <div class="button-back1">
-                        <button type="button" class="btn btn-sm custom-button1" onclick="window.location='{{ route('home') }}'">Back</button>
+                        <button type="button" class="btn btn-sm custom-button1" onclick="window.location='{{ route('indexpost') }}'">Back</button>
                     </div>
                 </div>
                 <div class="col-5 custom-button">

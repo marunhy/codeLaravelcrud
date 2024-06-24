@@ -4,7 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/postdetail.css']) --}}
-    @vite('resources/js/user.js')
+    {{-- @vite('resources/js/user.js') --}}
+    <script src="{{ asset('js/user.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 </head>
 @extends('layouts.layout-page')
@@ -50,10 +51,8 @@
                                     class="required-mark-add"></span></label>
                             <div>
                                 <div class="input-group">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                         autocomplete="new-password" value="{{ old('password', $user->password) }}">
-                                        <button type="button" id="toggle-password" class="btn btn-outline-secondary"><i class="bi bi-eye"></i></button>
+                                    <input id="password" type="password" class="form-control password-field @error('password') is-invalid @enderror" name="password" autocomplete="new-password" value="{{ old('password', $user->password) }}">
+                                    <button type="button" class="btn btn-outline-secondary toggle-password"><i class="bi bi-eye"></i></button>
                                 </div>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

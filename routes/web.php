@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 
 Route::controller(UserController::class)
@@ -42,22 +43,43 @@ Route::controller(RegisterController::class)
         Route::post('/reset-password', 'resetPassword')->name('resetPassword');
     });
 
-Route::controller(HomeController::class)
+Route::controller(PostController::class)
     ->prefix('')
     ->group(function () {
-        Route::get('/', 'home')->name('home');
+        Route::get('/', 'indexpost')->name('indexpost');
     });
 
 Route::controller(PostController::class)
     ->prefix('post')
     ->group(function () {
-        Route::get('/', 'indexpost')->name('indexpost');
         Route::get('/create', 'createpost')->name('createpost');
         Route::post('/create', 'storepost')->name('storepost');
-        Route::get('/postDetail', 'postDetail')->name('postDetail');
+        Route::get('/Detail', 'Detail')->name('Detail');
         Route::post('/upload', 'upload')->name('ckeditor.upload');
-        Route::prefix('{id}')
+        Route::get('/manage', 'managePosts')->name('managePosts');
+        Route::prefix('{postId}')
             ->group(function () {
+                Route::get('/postDetail', 'postDetail')->name('postDetail');
                 Route::get('/showPost', 'showPost')->name('showPost');
+                Route::get('/editpostForm', 'editpostForm')->name('editpostForm');
+                Route::put('/editpost', 'editpost')->name('editpost');
+                Route::post('/deletepost', 'deletepost')->name('deletepost');
             });
+    });
+
+Route::controller(HomeController::class)
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/', 'dashboard')->name('dashboard');
+    });
+
+    Route::controller(CategoryController::class)
+    ->prefix('category')
+    ->group(function () {
+        Route::get('/', 'getAllCategory')->name('getAllCategory');
+        Route::get('/createcategory', 'createcategoryform')->name('createcategoryform');
+        Route::post('/createcategory', 'createcategory')->name('createcategory');
+        Route::get('/editcategory/{categoryId}', 'editcategoryform')->name('editcategoryform');
+Route::put('/editcategory/{categoryId}', 'editcategory')->name('editcategory');
+
     });

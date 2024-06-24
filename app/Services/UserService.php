@@ -12,7 +12,11 @@ class UserService
 
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(5);
+        // Exclude admin users
+        $users = User::whereDoesntHave('roles', function ($query) {
+            $query->where('name', 'admin');
+        })->orderBy('id', 'desc')->paginate(5);
+
         return $users;
     }
 

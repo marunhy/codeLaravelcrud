@@ -4,11 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/toppage.css']) --}}
-    @vite('resources/js/user.js')
-    {{-- <link rel="stylesheet" href="{{ asset('css/login.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{asset('css/login.css')}}"> --}}
-    @vite('resources/css/login.css')
-
+    {{-- @vite('resources/js/user.js') --}}
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <script src="{{ asset('js/user.js') }}"></script>
 </head>
 
 @extends('layouts.layout-page')
@@ -44,7 +42,7 @@
                     <div class="col-md-12">
                         <div class="password-container">
                             <input type="password" name="password" class="title-form-login-input" id="password">
-                            <button type="button" id="toggle-password" class="toggle-password-btn">
+                            <button type="button" class="toggle-password-btn toggle-password">
                                 <i id="toggle-password-icon" class="bi bi-eye"></i>
                             </button>
                         </div>

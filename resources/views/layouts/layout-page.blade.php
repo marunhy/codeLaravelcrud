@@ -28,17 +28,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    {{-- @vite(['resources/css/layoutpage.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/layoutpage.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/user.js') }}">
+    <link rel="stylesheet" href="{{ asset('css/layouts.css') }}">
     <title>Document</title>
 </head>
 
 <body class="reduce-width">
     <header>
         <div class="container-fluid">
-            <div class="row title-header">
+            <div class="row title-header align-items-center"> <!-- Added align-items-center class -->
                 <div class="col-6 col-md-2 header-logo">
-                    <p class="text-myblog">MY BLOG</p>
+                    <a href="{{ route('indexpost') }}">
+                        <p class="text-myblog">MY BLOG</p>
+                    </a>
                 </div>
                 <div class="col-md-8 header-menu">
                     <nav class="navbar navbar-expand-md navbar-light">
@@ -68,7 +70,7 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-6 col-md-2 header-button mb-2">
+                <div class="col-6 col-md-2 header-button">
                     @if (Auth::check())
                         <div class="dropdown">
                             <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
@@ -101,6 +103,10 @@
             </div>
         </div>
     </header>
+    <div class="custome-hr-header">
+        <hr>
+    </div>
+
     <main class="flex-grow-1">
         @yield('pagepost')
     </main>
@@ -135,9 +141,9 @@
                     </div>
                     <div class="col-12 col-md-4 footer-title-popular">
                         <p class="title-text-contact">Popular</p>
-                        <p class="item-text-contact">Free Travel videos</p>
-                        <p class="item-text-contact">Maps</p>
-                        <p class="item-text-contact">Hotel contact book</p>
+                        <p class="item-text-Popular">Free Travel videos</p>
+                        <p class="item-text-Popular">Maps</p>
+                        <p class="item-text-Popular">Hotel contact book</p>
                     </div>
                     <div class="col-12 col-md-4 footer-right">
                         <div class="title-contact-us">
