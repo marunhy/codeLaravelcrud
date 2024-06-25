@@ -6,8 +6,6 @@
     width: 300px;
 }
 
-
-.img-fluid {
-    max-width: 300px;
+#preview-image {
     height: 300px;
 }

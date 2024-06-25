@@ -66,6 +66,8 @@ Route::controller(PostController::class)
                 Route::put('/editpost', 'editpost')->name('editpost');
                 Route::post('/deletepost', 'deletepost')->name('deletepost');
             });
+            Route::get('/load-more-posts', 'loadMorePosts')->name('loadMorePosts');
+
     });
 
 Route::controller(HomeController::class)

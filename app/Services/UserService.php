@@ -12,14 +12,11 @@ class UserService
 
     public function index()
     {
-        // Exclude admin users
         $users = User::whereDoesntHave('roles', function ($query) {
             $query->where('name', 'admin');
         })->orderBy('id', 'desc')->paginate(5);
-
         return $users;
     }
-
 
     public function show(string $userId)
     {
@@ -36,7 +33,6 @@ class UserService
             'gender' => $data['gender'],
             'profile_image' => $data['profile_image'] ?? null,
         ]);
-
     }
 
     public function update(array $data, string $userId)
