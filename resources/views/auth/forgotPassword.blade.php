@@ -21,7 +21,7 @@
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
                     </div>
-                    <button type="submit" class="button-sendotp">Send OTP</button>
+                    <button type="submit" class="button-sendotp" id="submitButton" onclick="this.disabled=true; this.form.submit();">Send OTP</button>
                 </form>
             </div>
         </div>

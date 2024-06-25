@@ -1,0 +1,22 @@
+.required-mark-add {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-left: 1px;
+    vertical-align: text-top;
+    width: 5px;
+}
+
+.col {
+    margin-bottom: 20px;
+}
+
+.rounded p {
+    font-size: 30px;
+}
+
+.lead {
+    font-size: 40px;
+}

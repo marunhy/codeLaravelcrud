@@ -84,12 +84,11 @@ class PostController extends Controller
     }
 
     public function editpost(EditPostRequest $request, $postId)
-{
-    $validatedData = $request->validated();
-    $this->postService->editpost($postId, $validatedData, $request->file('images'));
-    return redirect()->route('managePosts')->with('success', __('Bài viết đã được cập nhật thành công'));
-}
-
+    {
+        $validatedData = $request->validated();
+        $this->postService->editpost($postId, $validatedData, $request->file('images'));
+        return redirect()->route('managePosts')->with('success', __('Bài viết đã được cập nhật thành công'));
+    }
 
     public function deletepost($postId)
     {

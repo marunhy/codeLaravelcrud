@@ -22,7 +22,7 @@
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-primary">Verify OTP</button>
+                <button type="submit" class="btn btn-primary" id="submitButton" onclick="this.disabled=true; this.form.submit();">Verify OTP</button>
             </form>
         </div>
     </div>

@@ -1,0 +1,88 @@
+.icon-add-new-user {
+    float: right;
+}
+
+.float-right {
+    float: right;
+    padding-right: 10px;
+}
+
+.btn-savenew {
+    padding-top: 20px;
+}
+
+.row .col-8 {
+    width: 835px;
+}
+
+.table {
+    vertical-align: middle;
+    border-style: groove;
+    margin-top: 40px;
+}
+
+.table thead {
+    vertical-align: bottom;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.item-search hr {
+    border: none;
+    border-top: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.required-mark-add {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-left: 1px;
+    vertical-align: top;
+    width: 5px;
+}
+
+.search {
+    margin-top: 20px;
+}
+
+.form-search {
+    padding-top: 110px;
+}
+
+.search-by-name .title-search-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.search-by-name {
+    width: 95%;
+    margin-left: 15px;
+}
+
+.search-bar {
+    margin-left: 25px;
+}
+
+.search-radio {
+    margin-left: 25px;
+}
+
+.button-search {
+    margin-left: 25px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .table {
+    max-width: 100%;
+}
+}
+
+@media (max-width: 576px) {
+
+}
+
+@media (max-width: 390px) {
+
+}

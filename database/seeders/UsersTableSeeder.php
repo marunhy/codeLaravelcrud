@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Role;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,7 +15,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create multiple users using a loop or an array
         User::insert([
             [
                 'name' => 'Alice Johnson',

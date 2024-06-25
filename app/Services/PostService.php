@@ -85,8 +85,6 @@ class PostService
         return Post::with('attachments')->latest()->whereNull('deleted_at')->get();
     }
 
-    // PostService.php
-
     public function editpost($postId, array $data, $images)
     {
         $post = Post::findOrFail($postId);
@@ -95,17 +93,13 @@ class PostService
         $post->category_id = $data['category_id'];
         $post->save();
 
-        // Only delete old attachments if new images are uploaded
         if ($images) {
-            // Delete old images
             foreach ($post->attachments as $attachment) {
                 if (file_exists(public_path($attachment->image_url))) {
-                    unlink(public_path($attachment->image_url)); // Remove the image from the filesystem
+                    unlink(public_path($attachment->image_url));
                 }
-                $attachment->delete(); // Remove the record from the database
+                $attachment->delete();
             }
-
-            // Save new images
             foreach ($images as $image) {
                 $imagePath = $this->uploadImage($image);
                 $attachment = new Attachment();
@@ -114,18 +108,13 @@ class PostService
                 $attachment->save();
             }
         }
-        // If no new images are uploaded, do nothing with attachments (keep existing ones)
     }
 
     public function deletepost($postId)
     {
         $post = Post::findOrFail($postId);
         $categoryId = $post->category_id;
-
-        // Delete post
         $post->delete();
-
-        // Update post count for the category
         Category::where('id', $categoryId)->decrement('post_count');
     }
 }

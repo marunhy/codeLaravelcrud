@@ -28,8 +28,7 @@ body {
 .title-header {
     margin: 16px 50px;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    align-items: center; /* Ensure vertical alignment */
 }
 
 .header-logo {
@@ -37,6 +36,20 @@ body {
     font-family: "Noto Sans", sans-serif;
     font-weight: 700;
     font-style: normal;
+}
+
+.header-logo a {
+    color: #000; /* Màu chữ cho link */
+    text-decoration: none; /* Loại bỏ đường gạch chân của link */
+}
+
+.header-logo a:hover {
+    text-decoration: underline; /* Hiển thị đường gạch chân khi di chuột qua */
+}
+
+
+.text-myblog {
+    margin-bottom: 0;
 }
 
 .header-menu {
@@ -70,8 +83,10 @@ body {
 }
 
 .header-button {
+    font-weight: 700;
     display: flex;
     gap: 10px;
+    align-items: center;  /* Ensures buttons are centered */
 }
 
 .header-button .button-login,
@@ -108,13 +123,7 @@ body {
 
 .custome-hr-header hr {
     margin: 0;
-}
-
-.custome-hr {
-    width: 100%;
-    margin: 0;
-    height: 1px;
-    /* Chiều cao của đường kẻ */
+    border: 1px solid #e2e0e0;
 }
 
 /* start css footer */
@@ -132,7 +141,7 @@ footer {
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .title-sub-footer {
@@ -221,6 +230,8 @@ footer {
 
 .contacts-title-footer {
     padding: 70px;
+    padding-bottom: 0;
+    font-size: 15px;
 }
 
 .footer-title-contact {
@@ -228,30 +239,41 @@ footer {
 }
 
 .text-adress-contact {
-    line-height: 1.2;
+    line-height: 19px;
+    margin: 0;
+    margin-bottom: 40px;
 }
 
 .title-text-contact {
+    margin: 0;
+    margin-bottom: 20px;
     font-size: 18px;
     font-weight: bold;
+}
+
+.item-text-Popular {
+    height: fit-content;
 }
 
 .text-contact {
     margin-left: 10px;
     font-size: 15px;
     font-weight: bold;
-}
+    margin-top: -10px;}
 
 .footer-title-popular {
-    line-height: 2.2;
+    line-height: 30px;
 }
 
 .contact-phone-number {
     display: flex;
+    height: 25px;
+    margin-bottom: 30px;
 }
 
-.contact-phone-number i {
-    margin-top: 7px;
+.contact-phone-number i{
+    align-items: start;
+    display: grid;
 }
 
 .footer-right {
@@ -259,6 +281,7 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    font-size: 15px;
 }
 
 .title-contact-us {
@@ -267,7 +290,7 @@ footer {
     max-width: 264px;
     height: 52px;
     background-color: #FFFFFF;
-    border: 2px solid #707070;
+    border: 1px solid #707070;
     border-radius: 5px;
     text-align: center;
     display: flex;
@@ -282,7 +305,7 @@ footer {
     max-width: 264px;
     height: 52px;
     background-color: #FFFFFF;
-    border: 2px solid #707070;
+    border: 1px solid #707070;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -299,6 +322,18 @@ footer {
     margin-left: 15px;
     background-color: #EDEBEB;
 }
+
+.dropdown {
+    border: none;
+    height: auto;
+}
+
+.text-name-user {
+    color: #000000; /* Màu đen */
+}
+
+
+
 
 /* Responsive Design */
 /* Responsive Design */

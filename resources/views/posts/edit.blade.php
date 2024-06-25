@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit Post</title>
-    <link rel="stylesheet" href="{{ asset('css/editpost.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/post/editposts.css') }}">
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 </head>
 @extends('admin.dashboard')
@@ -44,7 +44,7 @@
                         <div class="row">
                             @foreach($post->attachments as $attachment)
                                 <div class="col-md-3">
-                                    <img src="{{ asset($attachment->image_url) }}" class="img-thumbnail" alt="Image">
+                                    <img src="{{ asset($attachment->image_url) }}" class="image-thumbnail" alt="Image">
                                 </div>
                             @endforeach
                         </div>

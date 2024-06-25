@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Services\CategoryService;
 use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\EditCategoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -52,7 +53,7 @@ class CategoryController extends Controller
     return view('category.editcategory', compact('category'));
 }
 
-public function editcategory(Request $request, $categoryId)
+public function editcategory(EditCategoryRequest $request, $categoryId)
 {
     $requestData = $request->validated();
     $category = Category::findOrFail($categoryId);

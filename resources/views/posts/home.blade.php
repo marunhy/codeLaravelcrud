@@ -1,17 +1,20 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {{-- @vite(['resources/css/toppage.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/homes/home.css') }}">
+    @vite(['resources/css/homes/homes.css'])
+    {{-- <link rel="stylesheet" href="{{ asset('css/homes/homes.css') }}"> --}}
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 </head>
-</head>
 
+<body>
 @extends('layouts.layout-page')
 @section('pagepost')
     <div class="container-fluid">
@@ -57,12 +60,9 @@
         </div>
         <div class="container">
             <div class="row post-title-category">
-                <div class="category-title">
-                    @php $count = 0; @endphp
+                <div class="category" id="post-container">
                     @foreach ($posts as $post)
-                        @php $count++; @endphp
-                        @if ($count <= 3)
-                            <div class="category-title" style="height: 440">
+                            <div class="category-title">
                                 <div class="custome-hr">
                                     <hr>
                                 </div>
@@ -101,14 +101,15 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
                     @endforeach
                 </div>
                 <div class="custome-hr">
                     <hr>
                 </div>
                 <div class="button-more">
-                    <button id="load-more" class="button-load-more" data-page="1">Load More</button>
+                    <button id="load-more" class="button-load-more" data-page="1">
+                        Load More
+                    </button>
                 </div>
             </div>
             <div class="post-latest">
@@ -202,9 +203,27 @@
                 }
             }]
         });
-    });
+
+        let loadMoreBtn = document.querySelector('#load-more');
+        let currentItem = 3;
+        loadMoreBtn.onclick = () => {
+        let boxes = [...document.querySelectorAll('.category-title')];
+        for (let i = currentItem; i < currentItem + 3 && i < boxes.length; i++) {
+            boxes[i].style.display = 'block';
+        }
+        currentItem += 3;
+        if (currentItem >= boxes.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+    };
+});
 </script>
+<style>
+    .category-title {
+        display: none;
+    }
 
-</body>
-
-</html>
+    .category-title:nth-child(-n+3) {
+        display: block;
+    }
+</style>

@@ -1,0 +1,108 @@
+
+.container-signup {
+padding-top: 200px;
+}
+
+.title-signup {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    height: 100%;
+}
+
+.title-signup .text-email {
+    margin: 0;
+    font-size: larger;
+    padding-right: 30px;
+}
+
+.form-sigup-email {
+    display: inline-flex;
+}
+
+.form-sigup-email .text-email {
+    padding-top: 10px;
+}
+
+.form-sigup-email .error-require {
+    display: block;
+}
+
+.email {
+    width: 528px;
+    height: 48px;
+    background: #f2f2f2;
+    outline: none;
+    padding-left: 20px;
+    border: none;
+}
+
+.required-mark-signup {
+    background-color: #1eaa39;
+    border: 1px solid #1eaa39;
+    border-radius: 10px;
+    display: inline-block;
+    height: 5px;
+    margin-left: 10px;
+    vertical-align: text-top;
+    width: 5px;
+}
+
+.form-button-signup {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.button-back1 {
+    width: 180px;
+    height: 40px;
+    float: right;
+}
+
+.custom-button1 {
+    width: 100%;
+    height: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: #9d9d9d;
+    color: white;
+    border-radius: 30px;
+    float: right;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button1:hover {
+    margin-top: -5px;
+    background-color: white;
+    color: #222;
+    box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.25);
+}
+
+.button-back2 {
+    width: 180px;
+    height: 40px;
+}
+
+.custom-button2 {
+    width: 100%;
+    height: 100%;
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: #222;
+    color: white;
+    border-radius: 30px;
+    float: right;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, margin-top 0.3s ease;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button2:hover {
+    margin-top: -5px;
+    color: #1eaa39;
+    box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.25);
+}

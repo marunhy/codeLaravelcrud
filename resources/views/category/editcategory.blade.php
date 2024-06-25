@@ -27,7 +27,7 @@
                     </div>
                 @endif
 
-                <button type="submit" class="btn btn-primary">Update Category</button>
+                <button type="submit" class="btn btn-primary" id="submitButton" onclick="this.disabled=true; this.form.submit();">Update Category</button>
             </form>
         </div>
     </div>

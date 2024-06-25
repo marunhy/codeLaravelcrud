@@ -4,8 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/users.css']) --}}
-    {{-- @vite('resources/js/user.js') --}}
-    <script src="{{ asset('js/user.js') }}"></script>
+    @vite('resources/js/user.js')
+    {{-- <script src="{{ asset('js/user.js') }}"></script> --}}
     <link rel="stylesheet" href="{{ asset('css/add.css') }}">
 </head>
 @extends('layouts.layout-page')

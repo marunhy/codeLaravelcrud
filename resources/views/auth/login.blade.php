@@ -7,6 +7,8 @@
     {{-- @vite('resources/js/user.js') --}}
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
     <script src="{{ asset('js/user.js') }}"></script>
+    {{-- mix.js('resources/js/user.js', 'public/js')
+    .postCss('resources/css/login.css', 'public/css'); --}}
 </head>
 
 @extends('layouts.layout-page')
@@ -41,7 +43,9 @@
                     </div>
                     <div class="col-md-12">
                         <div class="password-container">
-                            <input type="password" name="password" class="title-form-login-input" id="password">
+                            <input id="password" type="password"
+                                class="title-form-login-input password-field @error('password') is-invalid @enderror" name="password"
+                                autocomplete="new-password">
                             <button type="button" class="toggle-password-btn toggle-password">
                                 <i id="toggle-password-icon" class="bi bi-eye"></i>
                             </button>
@@ -69,7 +73,7 @@
                 <div class="row justify-content-md-center button-form-login">
                     <div class="col-6 button-password-login">
                         <div class="custom-button-password-login">
-                            <button type="submit" class="button-login-custom" id="loginButton">Log in</button>
+                            <button type="submit" class="button-login-custom" id="loginButton" onclick="this.disabled=true; this.form.submit();">Log in</button>
                         </div>
                     </div>
                     <a href="{{ route('forgotPasswordForm') }}" class="title-forgot-password">

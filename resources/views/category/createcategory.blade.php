@@ -24,7 +24,7 @@
                         <label for="categories_image">Category Image:</label>
                         <input type="file" id="categories_image" name="categories_image" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary" id="submitButton" onclick="this.disabled=true; this.form.submit();">Create</button>
                 </form>
             </div>
         </div>

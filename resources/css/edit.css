@@ -1,0 +1,13 @@
+.img-edit {
+    margin-left: 80px;
+}
+
+.item-img-edit {
+    width: 300px;
+}
+
+
+.img-fluid {
+    max-width: 300px;
+    height: 300px;
+}

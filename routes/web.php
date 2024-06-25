@@ -57,6 +57,7 @@ Route::controller(PostController::class)
         Route::get('/Detail', 'Detail')->name('Detail');
         Route::post('/upload', 'upload')->name('ckeditor.upload');
         Route::get('/manage', 'managePosts')->name('managePosts');
+        Route::get('/load-more-posts', 'loadMorePosts')->name('loadMorePosts'); // Thêm route này
         Route::prefix('{postId}')
             ->group(function () {
                 Route::get('/postDetail', 'postDetail')->name('postDetail');
@@ -73,13 +74,12 @@ Route::controller(HomeController::class)
         Route::get('/', 'dashboard')->name('dashboard');
     });
 
-    Route::controller(CategoryController::class)
+Route::controller(CategoryController::class)
     ->prefix('category')
     ->group(function () {
         Route::get('/', 'getAllCategory')->name('getAllCategory');
         Route::get('/createcategory', 'createcategoryform')->name('createcategoryform');
         Route::post('/createcategory', 'createcategory')->name('createcategory');
         Route::get('/editcategory/{categoryId}', 'editcategoryform')->name('editcategoryform');
-Route::put('/editcategory/{categoryId}', 'editcategory')->name('editcategory');
-
+        Route::put('/editcategory/{categoryId}', 'editcategory')->name('editcategory');
     });
