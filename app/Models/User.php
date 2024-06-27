@@ -12,30 +12,18 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
 
-    protected $table = 'users';
-
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'gender',
-        'profile_image'
+        'name', 'email', 'password', 'gender', 'profile_image'
     ];
 
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password', 'remember_token',
     ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
         'gender' => 'boolean',
     ];
-
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
 
     public function roles()
     {
@@ -48,15 +36,27 @@ class User extends Authenticatable
         return $this->roles()->where('name', $role)->exists();
     }
 
-    // Check if user is an admin
-    public function isAdmin()
+    // Check if user is a super admin
+    public function isSuperAdmin()
     {
-        return $this->hasRole('admin');
+        return $this->hasRole('super_admin');
     }
 
-    // Check if user is a regular user
-    public function isUser()
+    // Check if user is a sub admin
+    public function isSubAdmin()
     {
-        return $this->hasRole('user');
+        return $this->hasRole('sub_admin');
+    }
+
+    // Check if user is a writer
+    public function isWriter()
+    {
+        return $this->hasRole('writer');
+    }
+
+    // Check if user is a reader
+    public function isReader()
+    {
+        return $this->hasRole('reader');
     }
 }

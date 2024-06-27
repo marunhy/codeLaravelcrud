@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {{-- @vite(['resources/css/postdetail.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/forgotPassword.css') }}">
+    @vite(['resources/css/auth/forgotPassword.css'])
+    {{-- <link rel="stylesheet" href="{{ asset('css/auth/forgotPassword.css') }}"> --}}
 </head>
 @extends('layouts.layout-page')
 @section('pagepost')

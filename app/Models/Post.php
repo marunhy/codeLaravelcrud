@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'category_id'];
+    protected $fillable = ['title', 'content', 'category_id', 'user_id'];
 
     public function attachments()
     {
@@ -20,5 +20,9 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
-}
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}

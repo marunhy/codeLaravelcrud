@@ -17,26 +17,30 @@ class PostService
         return  $posts;
     }
 
-    public function storepost(array $data, $images)
-    {
-        $post = new Post();
-        $post->title = $data['title'];
-        $post->content = $data['content'];
-        $post->category_id = $data['category_id'];
-        $post->save();
-        Category::where('id', $data['category_id'])->increment('post_count');
+    public function storepost(array $data, $images, $user_id)
+{
+    $post = new Post();
+    $post->title = $data['title'];
+    $post->content = $data['content'];
+    $post->category_id = $data['category_id'];
+    $post->user_id = $user_id; // Assign the user_id here
+    $post->save();
 
-        if ($images) {
-            foreach ($images as $image) {
-                $imagePath = $this->uploadImage($image);
-                $attachment = new Attachment();
-                $attachment->post_id = $post->id;
-                $attachment->image_url = $imagePath;
-                $attachment->save();
-            }
+    Category::where('id', $data['category_id'])->increment('post_count');
+
+    if ($images) {
+        foreach ($images as $image) {
+            $imagePath = $this->uploadImage($image);
+            $attachment = new Attachment();
+            $attachment->post_id = $post->id;
+            $attachment->image_url = $imagePath;
+            $attachment->save();
         }
-        return $post;
     }
+
+    return $post;
+}
+
 
     protected function uploadImage($image)
     {
@@ -85,6 +89,8 @@ class PostService
         return Post::with('attachments')->latest()->whereNull('deleted_at')->get();
     }
 
+
+
     public function editpost($postId, array $data, $images)
     {
         $post = Post::findOrFail($postId);
@@ -117,4 +123,14 @@ class PostService
         $post->delete();
         Category::where('id', $categoryId)->decrement('post_count');
     }
+
+    public function managePostswriter($user_id)
+    {
+        return Post::with('attachments')
+                    ->where('user_id', $user_id) // Filter posts by user ID
+                    ->latest()
+                    ->whereNull('deleted_at')
+                    ->get();
+    }
+
 }

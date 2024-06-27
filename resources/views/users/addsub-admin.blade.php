@@ -5,8 +5,9 @@
     <title>Document</title>
     {{-- @vite(['resources/css/users.css']) --}}
     @vite('resources/js/user.js')
+    @vite(['resources/css/user/add.css'])
     {{-- <script src="{{ asset('js/user.js') }}"></script> --}}
-    <link rel="stylesheet" href="{{ asset('css/add.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/add.css') }}"> --}}
 </head>
 @extends('layouts.layout-page')
 
@@ -17,7 +18,7 @@
             Add new user and assign role.
         </div>
         <div class="row">
-            <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('storesubadmin') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="col-6">
                     <div class="col">
@@ -104,7 +105,7 @@
                     </div>
                     <div class="btn-savenew">
                         <button type="submit" class="btn btn-primary">Add new</button>
-                        <a href="{{ route('index') }}" class="btn btn-default">Back</a>
+                        <a href="{{ route('storesubadmin') }}" class="btn btn-default">Back</a>
                     </div>
                 </div>
             </form>

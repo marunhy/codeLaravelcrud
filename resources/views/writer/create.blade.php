@@ -8,14 +8,13 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
     {{-- <link rel="stylesheet" href="{{ asset('css/createpost.css') }}"> --}}
 </head>
-@extends('admin.dashboard')
-
-@section('adminpage')
+@extends('writer/manage')
+@section('accountpage')
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h2>Create new Blog</h2>
-                <form action="{{ route('storepost') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('storepostwrite') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title:</label>
@@ -61,7 +60,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <a href="{{ route('managePosts') }}" class="btn btn-default">Back</a>
+                    <a href="{{ route('managewrite') }}" class="btn btn-default">Back</a>
                 </form>
             </div>
         </div>

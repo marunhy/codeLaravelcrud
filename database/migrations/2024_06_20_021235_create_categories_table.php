@@ -11,13 +11,14 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('categories_image')->nullable();
+            $table->integer('post_count')->default(0); // Đảm bảo cột post_count tồn tại và được khởi tạo mặc định
             $table->timestamps();
-            $table->string('categories_image', 300)->nullable();
-            $table->integer('post_count')->default(0);
         });
 
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreignId('category_id')->nullable()->constrained('categories');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
     }
 
@@ -28,9 +29,6 @@ return new class extends Migration
             $table->dropColumn('category_id');
         });
 
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('categories_image');
-            $table->dropColumn('post_count');
-        });
+        Schema::dropIfExists('categories');
     }
 };

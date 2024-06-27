@@ -7,9 +7,8 @@
     @vite(['resources/css/post/editposts.css'])
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 </head>
-@extends('admin.dashboard')
-
-@section('adminpage')
+@extends('writer/manage')
+@section('accountpage')
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -52,7 +51,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="{{ route('managePosts') }}" class="btn btn-default">Back</a>
+                    <a href="{{ route('managewrite') }}" class="btn btn-default">Back</a>
 
                 </form>
             </div>

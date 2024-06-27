@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Services\PostService;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UploadFileRequest;
 use App\Http\Requests\EditPostRequest;
-use App\Models\Post;
-use App\Models\Category;
-use App\Services\PostService;
 use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
+class WriterPostController extends Controller
 {
     protected $postService;
 
@@ -21,37 +20,37 @@ class PostController extends Controller
         $this->postService = $postService;
     }
 
+    public function profile()
+    {
+        return view('writer.manage');
+    }
+
     public function indexpost()
     {
         $posts = $this->postService->indexpost();
         return view('home', compact('posts'));
     }
 
-    public function managePosts()
-    {
-        $posts = $this->postService->managePosts();
-        return view('posts.manage', compact('posts'));
-    }
+    public function managewrite()
+{
+    $user_id = Auth::id(); // Get the authenticated user's ID
+    $posts = $this->postService->managePostswriter($user_id);
+    return view('writer.managepost', compact('posts'));
+}
 
-    public function createpost()
+
+    public function createpostwriter()
     {
         $categories = Category::all(); // Fetch all categories
-        return view('posts.create', compact('categories'));
+        return view('writer.create', compact('categories'));
     }
 
-    // public function storepost(StorePostRequest $request)
-    // {
-    //     $validatedData = $request->validated();
-    //     $this->postService->storepost($validatedData, $request->file('images'));
-    //     return redirect()->route('managePosts')->with('success', __('Bài viết đã được đăng thành công'));
-    // }
-
-    public function storepost(StorePostRequest $request)
+    public function storepostwrite(StorePostRequest $request)
     {
         $validatedData = $request->validated();
         $user_id = Auth::id(); // Get the authenticated user's ID
         $this->postService->storepost($validatedData, $request->file('images'), $user_id);
-        return redirect()->route('managePosts')->with('success', __('Bài viết đã được đăng thành công'));
+        return redirect()->route('managewrite')->with('success', __('Bài viết đã được đăng thành công'));
     }
 
     public function upload(UploadFileRequest $request)
@@ -67,9 +66,9 @@ class PostController extends Controller
     {
         try {
             $post = $this->postService->showPost($postId);
-            return view('posts.showpost', ['post' => $post]);
+            return view('writer.showpost', ['post' => $post]);
         } catch (\Exception $e) {
-            return redirect()->route('managePosts')->with('error', $e->getMessage());
+            return redirect()->route('managewrite')->with('error', $e->getMessage());
         }
     }
 
@@ -78,7 +77,7 @@ class PostController extends Controller
     {
         try {
             $post = $this->postService->postDetail($postId);
-            return view('posts.post-detail', ['post' => $post]);
+            return view('writer.post-detail', ['post' => $post]);
         } catch (\Exception $e) {
             return redirect()->route('indexpost')->with('error', $e->getMessage());
         }
@@ -88,25 +87,23 @@ class PostController extends Controller
     {
         $post = $this->postService->showPost($postId);
         $categories = Category::all(); // Fetch all categories
-        return view('posts.edit', compact('post', 'categories'));
+        return view('writer.edit', compact('post', 'categories'));
     }
 
     public function editpost(EditPostRequest $request, $postId)
     {
         $validatedData = $request->validated();
         $this->postService->editpost($postId, $validatedData, $request->file('images'));
-        return redirect()->route('managePosts')->with('success', __('Bài viết đã được cập nhật thành công'));
+        return redirect()->route('managewrite')->with('success', __('Bài viết đã được cập nhật thành công'));
     }
 
     public function deletepost($postId)
     {
         try {
             $this->postService->deletepost($postId);
-            return redirect()->route('managePosts')->with('success', __('Bài viết đã được xóa thành công'));
+            return redirect()->route('managewrite')->with('success', __('Bài viết đã được xóa thành công'));
         } catch (\Exception $e) {
-            return redirect()->route('managePosts')->with('error', $e->getMessage());
+            return redirect()->route('managewrite')->with('error', $e->getMessage());
         }
     }
-
-
 }

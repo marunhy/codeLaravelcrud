@@ -6,9 +6,8 @@
     @vite(['resources/css/post/shows.css'])
     {{-- <link rel="stylesheet" href="{{ asset('css/shows.css') }}"> --}}
 </head>
-@extends('admin.dashboard')
-
-@section('adminpage')
+@extends('writer/manage')
+@section('accountpage')
     <div class="container-fluid">
         <div class="img-banner">
             @foreach ($post->attachments as $attachment)
@@ -23,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{ route('managePosts') }}" class="btn btn-primary">Back</a>
+        <a href="{{ route('managewrite') }}" class="btn btn-primary">Back</a>
     </div>
 @endsection
 

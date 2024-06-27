@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     {{-- @vite(['resources/css/postdetail.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/show.css') }}"> --}}
 </head>
 @extends('layouts.layout-page')
 @section('pagepost')
@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="mt-3">
-                <a href="{{ route('edit', $user->id) }}"class="btn btn-info btn-sm">Edit</a>
-                <a href="{{ route('index') }}" class="btn btn-default">Back</a>
+                <a href="{{ route('editreader', $user->id) }}"class="btn btn-info btn-sm">Edit</a>
+                <a href="{{ route('indexreader') }}" class="btn btn-default">Back</a>
             </div>
         </div>
     </div>

@@ -24,7 +24,6 @@ class RegisterService
             'test' => '*This email is for sending only.*',
             'url' => $url,
         ];
-        // SendEmailJob::dispatch($emailDetails);
         event(new SendEmailEvent($emailDetails));
 
     }

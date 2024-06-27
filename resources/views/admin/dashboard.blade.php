@@ -11,7 +11,7 @@
     <title>nnn</title>
 
     <!-- Linking to your custom CSS file -->
-    <link rel="stylesheet" href="{{ asset('css/admin/dashboards.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
 </head>
 
 <body>
@@ -35,9 +35,21 @@
                     </div>
                     <hr class="custom-hr-title">
                     <div class="nav-item active item-dashboard">
-                        <a class="nav-link" href="{{ route('index') }}">
+                        <a class="nav-link" href="{{ route('indexreader') }}">
                             <i class="bi bi-person-gear"></i>
-                            <span>Management user</span>
+                            <span>Management reader</span>
+                        </a>
+                    </div>
+                    <div class="nav-item active item-dashboard">
+                        <a class="nav-link" href="{{ route('indexwriter') }}">
+                            <i class="bi bi-person-gear"></i>
+                            <span>Management writer</span>
+                        </a>
+                    </div>
+                    <div class="nav-item active item-dashboard">
+                        <a class="nav-link" href="{{ route('indexsubadmin') }}">
+                            <i class="bi bi-person-gear"></i>
+                            <span>Management sub admin</span>
                         </a>
                     </div>
                     <div class="nav-item active item-dashboard">

@@ -12,19 +12,19 @@ class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
-        // Create admin role if not already created
-        $adminRole = Role::where('name', 'admin')->first();
-        if (!$adminRole) {
-            $adminRole = Role::create(['name' => 'admin', 'description' => 'Administrator']);
+        // Create super_admin role if not already created
+        $superAdminRole = Role::where('name', 'super_admin')->first();
+        if (!$superAdminRole) {
+            $superAdminRole = Role::create(['name' => 'super_admin', 'description' => 'Super Administrator']);
         }
 
-        // Create admin user
+        // Create super admin user
         User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
+            'name' => 'Super Admin User',
+            'email' => 'superadmin@example.com',
             'password' => Hash::make('password'),
             'gender' => true,
             'profile_image' => null,
-        ])->roles()->attach($adminRole->id);
+        ])->roles()->attach($superAdminRole->id);
     }
 }

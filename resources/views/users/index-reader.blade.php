@@ -17,7 +17,7 @@
                 <div class="lead">
                     Manage your users here.
                     <div class="icon-add-new-user">
-                        <a href="{{ route('create') }}"><i class="bi bi-person-add"></i></a>
+                        <a href="{{ route('createreader') }}"><i class="bi bi-person-add"></i></a>
                     </div>
                 </div>
                 <table class="table table-striped">
@@ -25,10 +25,10 @@
                         <tr>
                             <th scope="col" width="1%">#</th>
                             <th scope="col" width="">Name</th>
-                            <th scope="col" width="30%">Email</th>
+                            <th scope="col" width="20%">Email</th>
                             <th scope="col" width="15%">Image</th>
                             <th scope="col" width="10%">Gender</th>
-                            <th scope="col" width="15%" colspan="3">Option</th>
+                            <th scope="col" width="25%" colspan="4">Option</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,11 +42,17 @@
                                     <img src="{{ $user->profile_image }}" class="img-circle" alt="User Image" width="50"
                                         height="50">
                                 </td>
-                                <td>{{ $user->gender ? 'male' : 'female' }}</td>
-                                <td><a href="{{ route('show', $user->id) }}"> <i class="bi bi-eye-fill"></i></a></td>
-                                <td><a href="{{ route('edit', $user->id) }}"><i class="bi bi-pencil-square"></i></a></td>
                                 <td>
-                                    <form method="POST" action="{{ route('destroy', $user->id) }}">
+                                    <form action="{{ route('changeReaderToWriter', $user->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary">Change to Writer</button>
+                                    </form>
+                                </td>
+                                <td>{{ $user->gender ? 'male' : 'female' }}</td>
+                                <td><a href="{{ route('showreader', $user->id) }}"> <i class="bi bi-eye-fill"></i></a></td>
+                                <td><a href="{{ route('editreader', $user->id) }}"><i class="bi bi-pencil-square"></i></a></td>
+                                <td>
+                                    <form method="POST" action="{{ route('destroyreader', $user->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
@@ -69,7 +75,7 @@
                     <div class="item-search">
                         <hr>
                     </div>
-                    <form method="get" class="search" action="{{ route('search') }}">
+                    <form method="get" class="search" action="{{ route('searchreader') }}">
                         <div class="search-by-name">
                             <span class="title-search-name">Name</span>
                             <div class="search-bar">

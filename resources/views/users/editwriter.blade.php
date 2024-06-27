@@ -5,15 +5,16 @@
     <title>Document</title>
     {{-- @vite(['resources/css/postdetail.css']) --}}
     @vite('resources/js/user.js')
+    @vite(['resources/css/user/edit.css'])
     {{-- <script src="{{ asset('js/user.js') }}"></script> --}}
-    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/edit.css') }}"> --}}
 </head>
 @extends('layouts.layout-page')
 @section('pagepost')
     <div class="container bg-light p-4 rounded">
         <div>
             <h2>Update user</h2>
-            <form id="updateForm" action="{{ route('update', ['userId' => $user->id]) }}" method="post"
+            <form id="updateForm" action="{{ route('updatewriter', ['userId' => $user->id]) }}" method="post"
                 enctype="multipart/form-data">
                 @method('patch')
                 @csrf
@@ -94,7 +95,7 @@
                         <div class="col">
                             <div class="button-page-edit">
                                 <button type="submit" class="btn btn-primary">Save</button>
-                                <a href="{{ route('index') }}" class="btn btn-default">Back</a>
+                                <a href="{{ route('indexwriter') }}" class="btn btn-default">Back</a>
                             </div>
                         </div>
                     </div>

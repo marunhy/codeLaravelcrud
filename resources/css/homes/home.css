@@ -454,7 +454,7 @@
     }
 
     .post-title-category {
-        max-width: auto;
+        max-width: 100%;
         text-align: center;
         display: flex;
         justify-content: center;
@@ -501,6 +501,10 @@
 
     .card-post {
         max-width: 100%;
+    }
+
+    .banner-body-left-title span {
+        width: auto;
     }
 }
 

@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {{-- @vite(['resources/css/postdetail.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/post/postdetail.css') }}">
+    @vite(['resources/css/post/postdetail.css'])
+    {{-- <link rel="stylesheet" href="{{ asset('css/post/postdetail.css') }}"> --}}
 </head>
 @extends('layouts.layout-page')
 

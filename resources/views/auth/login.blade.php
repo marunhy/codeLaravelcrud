@@ -3,12 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {{-- @vite(['resources/css/toppage.css']) --}}
+    @vite(['resources/css/auth/login.css'])
     {{-- @vite('resources/js/user.js') --}}
-    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('css/auth/login.css')}}"> --}}
     <script src="{{ asset('js/user.js') }}"></script>
-    {{-- mix.js('resources/js/user.js', 'public/js')
-    .postCss('resources/css/login.css', 'public/css'); --}}
 </head>
 
 @extends('layouts.layout-page')

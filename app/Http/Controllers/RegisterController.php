@@ -58,12 +58,21 @@ class RegisterController extends Controller
     public function register(StoreUserRequest $request)
     {
         $requestData = $request->validated();
+
         if ($request->hasFile('profile_image') && $request->file('profile_image')->isValid()) {
             $requestData['profile_image'] = $this->getImage($request->file('profile_image'));
         }
+
         $user = $this->registerService->register($requestData);
+
+        $role = Role::where('name', 'reader')->first();
+        if ($role) {
+            $user->roles()->attach($role);
+        }
+
         Auth::login($user);
-        return redirect()->route('index')->with('success', __('User sign up successfully.'));
+
+        return redirect()->route('indexpost')->with('success', __('User sign up successfully.'));
     }
 
 
@@ -81,17 +90,26 @@ class RegisterController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            // Check user's roles
-            if (Auth::user()->hasRole('admin')) {
+
+            $user = Auth::user();
+            if ($user->hasRole('super_admin')) {
                 return redirect()->route('dashboard');
-            } else {
+            } elseif ($user->hasRole('sub_admin')) {
+                return redirect()->route('dashboard');
+            } elseif ($user->hasRole('writer')) {
+                return redirect()->route('indexpost');
+            } elseif ($user->hasRole('reader')) {
                 return redirect()->route('indexpost');
             }
+
+            return redirect()->route('indexpost');
         }
+
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
+
 
     public function logout(Request $request)
     {
@@ -116,7 +134,6 @@ class RegisterController extends Controller
     public function forgotPassword(ForgotPasswordRequest $request)
     {
         $email = $request->input('email');
-
         if ($this->registerService->forgotPassword($email)) {
             session(['email' => $email]);
             return redirect()->route('verifyOTPForm');
@@ -136,14 +153,12 @@ class RegisterController extends Controller
         $email = session('email');
         $otp = $request->input('otp');
         $storedOtp = Cache::get('otp_' . $email);
-
         if (is_null($email)) {
             return back()->withErrors(['email' => 'Session email is missing.'])->withInput();
         }
         if (is_null($storedOtp)) {
             return back()->withErrors(['otp' => 'Stored OTP is missing or expired.'])->withInput();
         }
-
         if ($storedOtp === $otp) {
             Cache::forget('otp_' . $email);
             return redirect()->route('resetPasswordForm')->with('email', $email);

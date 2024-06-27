@@ -9,12 +9,21 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CheckRole
 {
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (Auth::check() && Auth::user()->hasRole($role)) {
-            return $next($request);
+        if (!Auth::check()) {
+            return redirect('login');
         }
 
-        return redirect('/')->with('error', 'You do not have permission to access this page.');
+        $user = Auth::user();
+
+        foreach ($roles as $role) {
+            if ($user->hasRole($role)) {
+                return $next($request);
+            }
+        }
+
+        return redirect('home')->with('error', 'You do not have access to this page.');
     }
+
 }

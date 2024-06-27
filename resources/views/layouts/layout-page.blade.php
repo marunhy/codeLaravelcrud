@@ -72,25 +72,35 @@
                 </div>
                 <div class="col-6 col-md-2 header-button">
                     @if (Auth::check())
-                        <div class="dropdown">
-                            <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <div>
-                                    <img src="{{ asset(Auth::user()->profile_image) }}" class="rounded-circle"
-                                        alt="Circular Image" width="50" height="50"> <br>
-                                </div>
-                                <div>
-                                    <span class="text-name-user"> {{ Auth::user()->name }}</span>
-                                </div>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="#">My Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-                            </ul>
-                        </div>
+                        @if (Auth::user()->isReader() || Auth::user()->isWriter())
+                            <div class="dropdown">
+                                <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <div>
+                                        <img src="{{ asset(Auth::user()->profile_image) }}" class="rounded-circle"
+                                            alt="Circular Image" width="50" height="50"> <br>
+                                    </div>
+                                    <div>
+                                        <span class="text-name-user"> {{ Auth::user()->name }}</span>
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="">My Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ route('profile') }}">Manage</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                                </ul>
+                            </div>
+                        @elseif (Auth::user()->isSuperAdmin() || Auth::user()->isSubAdmin())
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary">Admin</a>
+                            <a href="{{ route('logout') }}" class="btn btn-primary">logout</a>
+
+                        @endif
                     @else
                         <div class="button-login">
                             <a href="{{ route('login') }}">Login</a>

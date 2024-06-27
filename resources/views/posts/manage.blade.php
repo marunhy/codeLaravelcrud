@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {{-- @vite(['resources/css/postdetail.css']) --}}
-    <link rel="stylesheet" href="{{ asset('css/manageposts.css') }}">
+    @vite(['resources/css/post/manageposts.css'])
+    {{-- <link rel="stylesheet" href="{{ asset('css/manageposts.css') }}"> --}}
 </head>
 @extends('admin.dashboard')
 
@@ -24,7 +24,9 @@
                     <tr>
                         <th scope="col" width="1%">#</th>
                         <th scope="col">Title</th>
-                        <th scope="col" width="30%">Content</th>
+                        <th scope="col" width="20%">Content</th>
+                        <th scope="col" width="10%">author</th>
+
                         <th scope="col" width="10%">Image</th>
                         <th scope="col" width="15%" colspan="3">Options</th>
                     </tr>
@@ -35,6 +37,13 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ Str::limit($post->title, 20) }}</td>
                             <td class="custom-text-content">{!! Str::limit(strip_tags($post->content), 20) !!}</td>
+                            <td>
+                                @if ($post->user)
+                                    {{ $post->user->name }}
+                                @else
+                                    No Author
+                                @endif
+                            </td>
                             <td>
                                 @foreach ($post->attachments as $attachment)
                                     <img src="{{ asset($attachment->image_url) }}" alt="image" width="50"
